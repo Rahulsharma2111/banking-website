@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="text-align: center;">
+    <h1>Bank Account details API</h1>
+    <h3>Data fetch by API</h3>
+    <table id="table" border="1px">
+        
+            <tr>
+                <th>name</th>
+                <th>father name</th>
+                <th>mother name</th>
+                <th>DOB</th>
+                <th>aadhar card number</th>
+                <th>account Number</th>
+                <th>caste</th>
+                <th>city</th>
+                <th>country</th>
+                <th>emailid</th>
+                <th>gender</th>
+                <th>mobile number</th>
+                <th>pen card number</th>
+                <th>pincode</th>
+                <th> premananet address</th>
+                <th> state</th>
+                <th>tempary address</th>
+                <th> username</th>
+                <th>user password</th>
+                <!-- <th></th>
+                <th></th> -->
+            </tr>
+            
+<tbody id="tbody" >  
+            
+        
+    </tbody>
+
+    </table>
+    <script>
+
+
+const url = 'http://localhost:3000/APIs_ApnaBank/make%20API%20using%20php%20data%20fetch/dataJSONretrivedata.php';
+fetch(url)
+      .then( (response)=> {
+        return response.json();
+      })
+      .then((data)=> {
+        console.log(data.fathername);
+        console.log(data);
+        // document.write(data);
+
+      const dataAPI=document.getElementById('tbody');
+
+      // <td>${data.firstname  ${data.middlename } ${data.lastname}  </td>
+dataAPI.innerHTML=`<tr>
+
+                <td>${data.firstname +' '+data.middlename +' '+ data.lastname}  </td>
+                <td>${data.fathername}</td>
+                <td>${data.mothername}</td>
+                <td>${data.DOB}</td>
+                <td>${data.aadharcardnumber}</td>
+                <td>${data.accountNumber}</td>
+                <td>${data.caste}</td>
+                <td>${data.city}</td>
+                <td>${data.country}</td>
+                <td>${data.emailid}</td>
+                <td>${data.gender}</td>
+                <td>${data.mobilenumber}</td>
+                <td>${data.pencardnumber}</td>
+                <td>${data.pincode}</td>
+                <td>${data.premananetaddress}</td>
+                <td>${data.statee}</td>
+                <td>${data.temparyaddress}</td>
+                <td>${data.username}</td>
+                <td>${data.userpassword}</td>
+              
+           
+                
+            </tr>`;
+
+
+
+      });
+    </script>

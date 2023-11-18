@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upadate using API</title>
+</head>
+
+<body>
+    <form action="" method="PUT" id="form">
+        <div> <label for="username">Username</label>
+            <input type="text" id="username" name="username"/>
+        </div>
+    <br/><br/>
+        <div>
+            <label for="MobileNumber">mobile Number</label>
+            <input type="text" id="MobileNumber" name="MobileNumber"/>
+        </div><br/><br/>
+        <div>
+            <label for="accountNumber">Account Number</label>
+            <input type="text" id="accountNumber" name="accountNumber"/>
+        </div>
+        <br/><br/>
+        <button type="submit" onclick="Update_data()" >Update</button>
+    </form>
+</body>
+<script>
+    function Update_data() {
+
+
+        // document.getElementById("form").addEventListener("submit", function (event) {
+        //     event.preventDefault()
+        // });
+
+
+        let usernameValue = document.getElementById("username").value;
+        let MobileNumberValue = document.getElementById("MobileNumber").value;
+        let accountNumberValue = document.getElementById("accountNumber").value;
+        if (usernameValue == '' || usernameValue == null) {
+            document.write("Please enter the username");
+            return;
+        }
+        if (MobileNumberValue == '' || MobileNumberValue == null) {
+            document.write("Please enter the mobile number");
+            return;
+        }
+        if (accountNumberValue == '' || accountNumberValue == null) {
+            document.write("Please enter the mobile number");
+            return;
+        }
+        const fromdata = {
+            'username': usernameValue,
+            'mobilenumber': MobileNumberValue,
+            'accountnumber': accountNumberValue
+        }
+        const jsonData = JSON.stringify(fromdata );
+
+
+        const url = 'http://localhost:3000/APIs_ApnaBank/update%20data%20API/data_update.php';
+        fetch(url, {
+
+            body: jsonData,
+            // method: 'POST',
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/JSON'
+            }
+        })
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data.message);
+                console.log(data.status);
+
+
+            });
+
+    }
+</script>
+
+</html>

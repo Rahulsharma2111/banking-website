@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow-x: hidden;
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+    }
+
+    #head {
+        width: 100vw;
+        height: 35px;
+        background-color: rgba(135, 139, 148, 0.281);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        font-weight: bold;
+
+    }
+
+    #PhotoSection {
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 44px;
+        margin-bottom: -225px;
+        /* margin-top: 5vh;
+        margin-bottom: -22vh; */
+        /* background-color: antiquewhite; */
+
+    }
+
+    /* #subDivPhoto{
+
+} */
+
+    #PhotoRing {
+        height: 170px;
+        width: 170px;
+        border-top: 5px solid white;
+        border-bottom: 5px solid white;
+        border-left: 5px solid rgb(135, 139, 148);
+        border-right: 5px solid rgb(135, 139, 148);
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        /* z-index: 111; */
+
+        animation: PHOTORING 2.5s infinite normal;
+    }
+
+    @keyframes PHOTORING {
+        0% {
+            rotate: 0deg;
+        }
+
+        100% {
+            rotate: 360deg;
+        }
+
+
+    }
+
+    #Photo {
+        height: 170px;
+        position: relative;
+        top: -175px;
+        border-radius: 50%;
+        /* background-color: black; */
+    }
+
+    #personalDetails {
+        width: 100vw;
+        text-align: center;
+    }
+
+    .details {
+        line-height: 20px;
+    }
+
+    .name {
+        font-weight: 800;
+        font-size: 30px;
+
+    }
+
+    .destination {
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 35px;
+        color: rgb(111, 111, 112);
+    }
+
+    #links {
+        width: 94vw;
+        height: 100px;
+        margin-top: 15px;
+        margin-left: 2vw;
+        border-radius: 10px;
+        /* padding-top: 10px; */
+        text-align: center;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(221, 222, 225);
+
+
+    }
+
+    #LinksboxFirst {
+        width: 50%;
+        /* display: flex;
+        align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap; */
+        /* background-color: #fff; */
+    }
+
+    #LinksboxSecond {
+        width: 50%;
+        /* background-color: #992727; */
+    }
+
+    /* .sublinkfirst{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        justify-content: flex-start;
+} */
+ a {
+        color: rgba(0, 0, 0, 0.87);
+        cursor: pointer;
+    }
+
+    i {
+        font-size: 20px;
+        margin-right: 8px;
+    }
+
+    #skills {
+        width: 100vw;
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    fieldset {
+        width: 90%;
+        height: 300px;
+        padding-bottom: 63px;
+        padding-top: 21px;
+        border: 3px solid rgba(71, 71, 73, 0.801);
+        border-radius: 20px;
+        display: flex;
+    }
+
+    legend {
+        font-size: 25px;
+        font-weight: 400;
+        font-family: Georgia, Times, 'Times New Roman', serif;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #fronted {
+        width: 50%;
+        /* height: 500px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid grey;
+        /* background-color: rgb(177, 115, 33); */
+
+    }
+
+    #backend {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-left: 1px solid grey;
+    }
+
+    .stackheader {
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .frontedLang {
+        width: 200px;
+        line-height: 20px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+    }
+
+    #html,
+    #css,
+    #Javascript {
+        padding-top: 10px;
+    }
+
+    #PHP,
+    #Java,
+    #SQL,
+    #Laravel {
+        padding-top: 10px;
+    }
+
+    .outerRing {
+        width: 200px;
+        height: 18px;
+        text-align: center;
+        box-shadow: 0px 0px 14px -4px #000000e6;
+        border-radius: 5px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+    }
+
+    .innerring {
+        width: 0px;
+        height: 18px;
+        border-radius: 5px 0 0 5px;
+        background-color: rgba(0, 0, 0, 0.432);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: 3s ease-out;
+
+    }
+
+    .innerringcss {
+        width: 0px;
+        height: 18px;
+        border-radius: 5px 0 0 5px;
+        background-color: rgba(0, 0, 0, 0.432);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: 3s ease-out;
+
+    }
+
+    .innerringJavascript {
+        width: 0px;
+        height: 18px;
+        border-radius: 5px 0 0 5px;
+        background-color: rgba(0, 0, 0, 0.432);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: 3s ease-out;
+
+    }
+
+    .innerringPHP {
+        width: 0px;
+        height: 18px;
+        border-radius: 5px 0 0 5px;
+        background-color: rgba(0, 0, 0, 0.432);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: 3s ease-out;
+
+    }
+
+    .innerringJava {
+        width: 0px;
+        height: 18px;
+        border-radius: 5px 0 0 5px;
+        background-color: rgba(0, 0, 0, 0.432);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: 3s ease-out;
+
+    }
+
+    .innerringSQL {
+        width: 0px;
+        height: 18px;
+        border-radius: 5px 0 0 5px;
+        background-color: rgba(0, 0, 0, 0.432);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: 3s ease-out;
+
+    }
+
+    .innerringLaravel {
+        width: 0px;
+        height: 18px;
+        border-radius: 5px 0 0 5px;
+        background-color: rgba(0, 0, 0, 0.432);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: 3s ease-out;
+
+    }
+
+    /* .outerRing::before {
+        content: '';
+        width: 1%;
+        transition: width 0.5s ease;
+         width: 100px; 
+        height: 18px;
+        background-color: rgba(0, 0, 0, 0.432);
+        border-radius: 5px 0 0 5px;
+        position: absolute;
+        display: flex; */
+    /* justify-content: flex-start;
+        align-items: center; */
+
+    /* } */
+
+
+    #softSkills {
+        width: 100vw;
+
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .softwareskill {
+        font-size: 23px;
+        font-weight: 600;
+    }
+
+    #skillssofware {
+        width: 90vw;
+        border-radius: 15px;
+        padding: 15px 0 15px 0;
+        background-color: rgb(221, 222, 225);
+    }
+
+    #softwareSubChild {
+        margin-top: 13px;
+        line-height: 30px;
+        font-size: 17px;
+
+    }
+
+    #collageEducation {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* background-color:rgba(221, 222, 225, 0.322) ; */
+    }
+
+    #Education {
+        font-size: 21px;
+        font-weight: 600;
+
+    }
+
+    #collageName {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    #DegreeTime {
+        width: 70vw;
+        border-radius: 10px;
+        line-height: 35px;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: rgba(0, 0, 0, 0.068);
+    }
+
+    #sessionTime {
+        background-color: rgba(0, 0, 0, 0.13);
+        width: 93px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+
+    }
+</style>
+<!-- 👀👀👀👀 -->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #header {
+        background: #7d818c4f;
+        /* background: #486cd87a; */
+        width: 99%;
+        height: 50px;
+        overflow: hidden;
+        z-index: 1;
+        /* padding: 0 2px 0 2px; */
+        position: relative;
+        top: 12px;
+        bottom: 12px;
+        margin: 0 0.50% 0 0.50%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .menu {
+        position: relative;
+        top: 35px;
+    }
+
+    .menu ul li {
+        display: inline-block;
+        flex-direction: column;
+        position: relative;
+        top: -35px;
+        left: 5vw;
+        /* left: 131px; */
+        padding-right: 88px;
+        font-size: 25px;
+
+    }
+
+    .menu ul li a {
+        color: rgb(3, 1, 1);
+        text-decoration: none;
+    }
+
+    .menu ul li a:hover {
+        color: #1d51b9b7;
+        text-decoration: underline;
+    }
+
+    .active {
+        color: rgb(241, 238, 238);
+        background-color: #0000002b;
+        border-radius: 15px;
+        display: flex;
+        align-items: stretch;
+        width: 140%;
+        justify-content: center;
+    }
+</style>
+
+<!-- 👀👀👀👀👀👀 -->
+
+<!-- Responsive about us page -->
+
+<!-- 👀👀👀👀👀👀👀 -->
+<style>
+    #responive_icon,
+    #showBars,
+    #wrong {
+
+        display: none;
+    }
+
+
+
+    @media only screen and (min-width:150px) and (max-width:925px) {
+
+        /* body{
+width: 100vw;
+overflow-x: hidden;
+} */
+        html {
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        #responive_icon {
+            position: absolute;
+            right: 42px;
+            /* right: 40px; */
+            top: 15px;
+            font-size: 23px;
+            display: block;
+        }
+
+        #showBars {
+            display: block;
+            position: absolute;
+
+        }
+
+        #header {
+            overflow: visible;
+        }
+
+        .menu {
+
+            background-color: antiquewhite;
+            position: absolute;
+            top: 0;
+            /* right: 0; */
+            right: -291px;
+            height: 235px;
+            width: 278px;
+            border-radius: 30px 0px 0px 30px;
+            transition: 0.4s ease-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .listt {
+            display: block;
+            position: absolute;
+            top: 84px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 9px;
+            margin-left: -25px;
+        }
+
+    }
+
+
+    @media only screen and (min-width:100px) and (max-width:499px) {
+        #personalDetails {
+            position: relative;
+            top: 69px;
+            
+        }
+
+        #links {
+            margin-top: 85px;
+            height: auto;
+            flex-direction: column;
+            padding: 25px 0px 25px 0px;
+        }
+
+        #LinksboxFirst,
+        #LinksboxSecond {
+            width: 80%;
+            line-height: 17px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        fieldset {
+            height: auto;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #fronted {
+            border-right: none;
+            /* border-bottom: 1px solid rgb(209, 208, 208); */
+        }
+
+        #backend {
+            border-left: none;
+            margin-top: 35px;
+        }
+
+        #DegreeTime {
+            width: 92vw;
+            flex-direction: column;
+            margin-top: 9px;
+            padding: 10px 0 10px 0;
+        }
+
+    }
+
+
+
+
+    @media only screen and (min-width:500px) and (max-width:799px) {
+
+        #personalDetails {
+            margin-top: 86px;
+        }
+    }
+
+
+
+
+
+
+
+    @media only screen and (min-width:800px) {
+        #personalDetails {
+            position: relative;
+            right: -209px;
+            top: -61px;
+            /* top: -72px; */
+        }
+
+
+        #PhotoSection {
+            position: relative;
+            left: -154px;
+        }
+    }
+</style>
+
+<body>
+    <!-- <header>
+         <div id="head">About Me</div> 
+
+    </header> -->
+
+    <!-- 👀👀👀👀👀 -->
+    <header id="header">
+        <div class="menu">
+
+            <!-- <i class="fa-solid fa-bars" id="showBars"></i> -->
+
+            <ul class="listt">
+                <!-- <i class="fa-solid fa-xmark" id="wrong"></i> -->
+
+                <li><a href="../index.php" class="home " id="activeid">Home</a></li>
+                <!--  -->
+                <li><a href="../logIn.php" class="Services ">Services</a> </li>
+                <!--    -->
+                <li><a href="./about_us_page.html" class="About_us">About us</a></li>
+                <!--  -->
+                <li><a href="./contact_us_page.html" class="Contact_us">Contact</a></li>
+                <!--  -->
+                <li><a href="./querie_help.html" class="Help">Help</a></li>
+                <!--  -->
+            </ul>
+
+        </div>
+
+        <span id="responive_icon">
+            <i class="fa-solid fa-bars" id="showBars"></i>
+            <i class="fa-solid fa-xmark" id="wrong"></i>
+        </span>
+
+    </header>
+
+    <!-- 👀👀👀👀👀 -->
+
+    <main>
+        <div id="PhotoSection">
+            <div id="subDivPhoto">
+                <span id="PhotoRing"></span>
+                <img src="../bank_images/myPhoto.png" alt="Photo" id="Photo">
+            </div>
+        </div>
+        <div id="personalDetails">
+            <span class="name details">Rahul Sharma</span>
+            <br>
+            <span class="destination details">Full Stack Web Developer</span>
+            <br>
+
+        </div>
+        <div id="links">
+            <div id="LinksboxFirst">
+                <!-- <div class="sublinkfirst"> -->
+                <span>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:apnabank123@email.com" target="_blank">
+                        <span> apnabank123@email.com</span>
+                    </a>
+                </span>
+                <br>
+                <!--  -->
+                <span>
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+91 0123456789" target="_blank">
+                        <span>+91 0123456789</span>
+                    </a>
+                </span>
+                <br>
+                <!--  -->
+                <span>
+                    <i class="fa-solid fa-globe"></i>
+                    <a href="www.apnabank.com">
+                        <span>www.apnabank.com</span>
+                    </a>
+                </span>
+            </div>
+            <!-- </div> -->
+            <br>
+            <!--  -->
+            <div id="LinksboxSecond">
+                <span>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/rahul-sharma-6969b3280/" target="_blank">
+                        <span>linkedin.com/in/rahul-sharma-6969b3280</span>
+                    </a>
+                </span>
+                <br>
+                <!--  -->
+                <span>
+                    <i class="fa-brands fa-github"></i>
+                    <a href="https://github.com/Rahulsharma2111" target="_blank"><span>
+                            github.com/Rahulsharma2111</span>
+                    </a>
+                </span>
+                <br>
+                <!--  -->
+                <span>
+                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com/rahulsharma21110/" target="_blank">
+                        <span>rahulsharma21110</span>
+                    </a>
+                </span>
+                <br>
+            </div>
+
+
+        </div>
+        <div id="skills">
+            <fieldset>
+                <legend>Skills</legend>
+                <!-- <div> -->
+                <!--  -->
+                <div id="fronted"><b class="stackheader">Fronted</b>
+                    <!--  -->
+                    <div id="html">
+                        <div class="frontedLang"><span>HTML</span>
+                            <span id="htmlPercent">90%</span>
+
+                        </div>
+                        <div class="outerRing htmlRange">
+                            <span class="innerring"></span>
+                        </div>
+                    </div>
+
+                    <!-- <br> -->
+                    <div id="css">
+                        <div class="frontedLang"><span>CSS</span>
+                            <span id="cssPercent">83%</span>
+                        </div>
+                        <div class="outerRing">
+                            <span class="innerringcss"></span>
+                        </div>
+                    </div>
+
+                    <!-- <br> -->
+                    <div id="Javascript">
+                        <div class="frontedLang"><span>Javascript</span>
+                            <span id="javascriptpercent">70%</span>
+                        </div>
+                        <div class="outerRing">
+                            <span class="innerringJavascript"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <!--  -->
+                <div id="backend"><b class="stackheader">Backend</b><br>
+                    <!--  -->
+                    <!-- <br> -->
+                    <div id="PHP">
+                        <div class="frontedLang"><span>PHP</span>
+                            <span id="phppercent">74%</span>
+                        </div>
+                        <div class="outerRing">
+                            <span class="innerringPHP"></span>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <!-- <br> -->
+                    <div id="Java">
+                        <div class="frontedLang"><span>Java</span>
+                            <span id="javapercent">78%</span>
+                        </div>
+                        <div class="outerRing">
+                            <span class="innerringJava"></span>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <!-- <br> -->
+                    <div id="SQL">
+                        <div class="frontedLang"><span>SQL</span>
+                            <span id="sqlpercent">89%</span>
+                        </div>
+                        <div class="outerRing">
+                            <span class="innerringSQL"></span>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <!-- <br> -->
+                    <div id="Laravel">
+                        <div class="frontedLang"><span>Laravel</span>
+                            <span id="laravelpercent">45%</span>
+                        </div>
+                        <div class="outerRing">
+                            <span class="innerringLaravel"></span>
+                        </div>
+                    </div>
+                    <!-- <span>Laravel</span><br> -->
+                </div>
+            </fieldset>
+
+        </div>
+        <!-- </div> -->
+
+        <br><br>
+
+
+        <div id="softSkills">
+            <div id="skillssofware"><b class="softwareskill">Software Skills</b>
+                <div id="softwareSubChild">
+                    <span>MS Word</span><br>
+                    <span>MS Excel</span><br>
+                    <span>MS Powerpoint</span><br>
+                    <span>TallyPrime</span><br>
+                    <span>Adobe Photoshop 7.0</span><br>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <div id="collageEducation">
+            <Span><b id="Education">Education</b></Span><br>
+
+            <span id="collageName">S.S. Jain Subodh PG College</span>
+            <div id="DegreeTime">
+                <span id="degree">Bachelor of Computer Applications</span>
+                <span id="sessionTime">2021-2024</span>
+            </div>
+
+
+        </div>
+    </main>
+    <!-- <section>
+
+    </section> -->
+    <!-- footer section -->
+    <div id="footer-container">
+
+    </div>
+
+
+    <script>
+         
+        // const htmlpercent =document.getElementById('htmlPercent');
+        // const htmlRange =document.getElementById('htmlRange');
+        //  var i=0;
+        // var countdown = setInterval(function() {
+        //   htmlpercent.innerHTML = i + '%';
+        //   i++;
+        // 
+        //   if (i == 90+1) {
+        //     clearInterval(countdown);
+        //   }
+        // }, 50);
+
+        function count(j, InSideSpan) {
+            this.j = j;
+            var i = 0;
+            var countdown = setInterval(function () {
+                InSideSpan.innerHTML = i + '%';
+                i++;
+
+                if (i == j) {
+                    clearInterval(countdown);
+                }
+            }, 50);
+        }
+
+        // For html
+        const htmlpercent = document.getElementById('htmlPercent');
+        var j = 91;
+        count(j, htmlpercent);
+
+        // for CSS
+        const csspercent = document.getElementById('cssPercent');
+        var j = 84;
+        count(j, csspercent);
+
+        // for Javascript
+        const javascriptpercent = document.getElementById('javascriptpercent');
+        var j = 71;
+        count(j, javascriptpercent);
+
+        // for PHP
+        const phppercent = document.getElementById('phppercent');
+        var j = 75;
+        count(j, phppercent);
+
+        // for Java
+        const javapercent = document.getElementById('javapercent');
+        var j = 79;
+        count(j, javapercent);
+
+        // for SQl
+        const sqlpercent = document.getElementById('sqlpercent');
+        var j = 90;
+        count(j, sqlpercent);
+
+
+        // for laravel
+        const laravelpercent = document.getElementById('laravelpercent');
+        var j = 46;
+        count(j, laravelpercent);
+
+
+
+
+
+
+
+        // // Get the outerRing element
+        // var w = 0;
+        // console.log(innerring);
+        // var interval = setInterval(function() {
+        //    
+        //   w += 5;
+        //   innerring.style.width= w + '%';
+        // 
+        //   if (w >= 90) {
+        //     clearInterval(interval);
+        //     console.log(complelte);
+        //   }
+        // }, 50);
+
+        function widthOfSkills(k, innerringWidth) {
+
+            var w = 0;
+            // console.log(innerring);
+            var interval = setInterval(function () {
+
+                w += 5;
+                innerringWidth.style.width = w + '%';
+
+                if (w >= k) {
+                    clearInterval(interval);
+                    // console.log(complelte);
+                }
+            }, 50);
+        }
+
+
+        // Slide on HTML
+        var innerring = document.querySelector('.innerring ');
+        var k = 90;
+        widthOfSkills(k, innerring);
+
+        //  Slide on CSS
+        var innerringCSS = document.querySelector('.innerringcss ');
+        var k = 83;
+        widthOfSkills(k, innerringCSS);
+
+        //  Slide on Javascript
+        var innerringJavascript = document.querySelector('.innerringJavascript ');
+        var k = 70;
+        widthOfSkills(k, innerringJavascript);
+
+        //  Slide on PHP
+        var innerringPHP = document.querySelector('.innerringPHP ');
+        var k = 74;
+        widthOfSkills(k, innerringPHP);
+
+        //  Slide on Java
+        var innerringJava = document.querySelector('.innerringJava ');
+        var k = 78;
+        widthOfSkills(k, innerringJava);
+
+        //  Slide on SQL
+        var innerringSQL = document.querySelector('.innerringSQL ');
+        var k = 89;
+        widthOfSkills(k, innerringSQL);
+
+        //  Slide on Laravel
+        var innerringLaravel = document.querySelector('.innerringLaravel ');
+        var k = 45;
+        widthOfSkills(k, innerringLaravel);
+
+
+
+
+
+    </script>
+
+    <!-- 👀👀👀👀👀👀 -->
+
+    <script>
+        const headerPath = window.location.pathname;
+        console.log(headerPath);
+        if (headerPath == "/index.html") {
+            console.log("header");
+            document.querySelector('.home').classList.add('active');
+        }
+
+        else if (headerPath == "/logIn.php") {
+            console.log("services");
+            document.querySelector('.Services').classList.add('active');
+        }
+        else if (headerPath == "/Pages/about_us_page.html") {
+            console.log("about");
+            document.querySelector('.About_us').classList.add('active');
+        }
+        else if (headerPath == "/Pages/contact_us_page.html") {
+            console.log("contact");
+            document.querySelector('.Contact_us').classList.add('active');
+        }
+        else if (headerPath == "/Pages/querie_help.html") {
+            console.log("querie");
+            document.querySelector('.Help').classList.add('active');
+        }
+        else {
+            console.log('Something wrong');
+        }
+
+
+        // For Responsive nar script
+
+        const showBars = document.getElementById("showBars");
+        const wrong = document.getElementById("wrong");
+        //     const computedStylee = getComputedStyle(menuUL);
+        // const leftt= computedStylee.color;
+        showBars.addEventListener('click', () => {
+            const menuUL = document.getElementsByClassName("menu")[0];
+            if (getComputedStyle(menuUL).right === "-291px") {
+                menuUL.style.right = "0px";
+                showBars.style.display = "none";
+                wrong.style.display = "block";
+
+            }
+            // else {
+            //     menuUL.style.left = "500px";
+            // }
+
+        });
+        wrong.addEventListener('click', () => {
+            const menuUL = document.getElementsByClassName("menu")[0];
+            if (getComputedStyle(menuUL).right === "0px") {
+                menuUL.style.right = "-291px";
+                wrong.style.display = "none";
+                showBars.style.display = "block";
+
+            }
+            // if ( getComputedStyle(menuUL).visibility === "hidden") {
+            //     menuUL.style.visibility = "visible";   
+            // }else {
+            //     menuUL.style.visibility = "hidden";
+            // }
+
+
+        });
+
+
+    </script>
+    <!-- 👀👀👀👀👀👀 -->
+
+    <script>
+        // footer file fetch
+         fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+
+    </script>
+</body>
+
+</html>

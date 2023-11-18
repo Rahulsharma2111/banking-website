@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apna Bank APIs</title>
+</head>
+<style>
+    body {
+        width: 96vw;
+    }
+
+    .codeDiv {
+        background-color: #d9dadf;
+        padding: 15px;
+        border-radius: 25px;
+        
+    }
+
+    code {
+        font-size: 15px;
+    }
+
+    .mainCode {
+        border: 2px solid grey;
+        border-radius: 30px;
+        text-align: center;
+        padding: 15px;
+        /* display: flex; */
+
+    }
+.codeLine{
+    word-wrap: break-word;
+
+}
+    .links {
+        color: rgba(16, 16, 204, 0.747);
+        /* width: 96vw; */
+        word-wrap: break-word;
+
+    }
+.urlLinks{
+    padding: 10px;
+    text-align: center;
+}
+    .tag {
+        color: rgb(25, 54, 150);
+    }
+
+    .classAtribute {
+        color: rgb(124, 37, 3);
+    }
+
+    .variable {
+        color: rgb(15, 164, 250);
+    }
+
+    .func {
+        color: rgb(235, 78, 5);
+
+    }
+
+    .specialCharaters {
+        color: #a26b29;
+    }
+
+    .curleBracket {
+        color: #cf1098;
+    }
+
+    .return {
+        color: #bb1e1e;
+    }
+
+    .comment {
+        color: green;
+    }
+</style>
+
+<body>
+    <!-- <iframe src="loan_details.html" frameborder="0"></iframe> -->
+    <header class="Documentation" style="text-align: center;font-size: 20px;"><b>Documentation</b></header>
+    <main>
+        <div class="codeDiv">
+            <div class="API_Title" style="text-align: center;">Data Fetch form API Using Javascript</div>
+<div class="contant"><P>If you are fetching data using API.The data will fetch by you First name, Middle name, Last name, Mobile number, Account Number and Account Balance only.The account holder have account in Apna Bank data will be fetched. </P></div>
+            <div class="urlLinks">URL = <span class="links">http://localhost:3000/APIs_ApnaBank/make%20API%20using%20php%20data%20fetch/dataJSONretrivedata.php </span>
+            </div>
+            <div class="mainCode">
+                <code>
+                <div class="API_code">
+                    <div>// API</div>
+                  <div class="codeLine">  <span class="tag">&lt;div <span class="classAtribute"> Class="divBody"</span>&gt; </span></div>
+                 
+                  <div class="codeLine">  <span class="comment" >&lt;!--<span>The fetch data is here</span>--&gt;</span></div>
+
+                    <div class="codeLine"><span class="tag">&lt;/div&gt;</span></div>
+                    <div class="codeLine"><span class="comment" >&lt;!--<span>Javascript Code using fetch method</span>--&gt;</span></div> 
+
+                    <div class="codeLine"><span class="variable"> const url <span class="specialCharaters">=</span> <span class="links">'http://localhost:3000/APIs_ApnaBank/make%20API%20using%20php%20data%20fetch/dataJSONretrivedata.php';</span> </span></div> 
+                    
+
+                    <div class="codeLine"><span class="tag">fetch(<span class="variable">url</span>)</span></div>
+
+                    <div class="codeLine"><span class="func" >.then<span class="specialCharaters">(</span><span class="variable">(response)<span class="specialCharaters">=></span></span><span class="curleBracket">{</span></span></div>
+
+                    <div class="codeLine"><span class="tag"><span class="return" >return</span> response.json<span class="specialCharaters">()</span>;</span></div>
+
+                    <div class="codeLine"><span class="specialCharaters"><span class="curleBracket">}</span>)</span></div>
+                    
+                    <div class="codeLine"><span class="func" >.then<span class="specialCharaters">(</span><span class="variable">(data)<span class="specialCharaters">=></span></span><span class="curleBracket">{</span></span></div>
+
+                        <div class="codeLine"><span class="links">console.log<span class="specialCharaters">(<span class="variable">data</span>)</span>;</span></div>
+
+                        <div class="codeLine"><span class="tag">
+                            <span class="variable">const dataAPI</span>
+                            <span class="specialCharaters">=</span>
+                            <span class="tag">document.getElementById</span><span class="specialCharaters">('<span class="links">divBody</span>')</span>;</span>
+                        </div>
+
+                        <div class="codeLine"><span class="classAtribute">dataAPI.<span class="return" >innerHTML</span><span class="specialCharaters">=</span>`<span class="func" >&lt;div&gt;<span class="specialCharaters">${</span><span class="variable">data.firstname</span><span class="specialCharaters">}</span><span class="specialCharaters">&lt;/div&gt;</span></span></span></div>
+
+                        <div class="codeLine"><span class="func" >&lt;div&gt;<span class="specialCharaters">${</span><span class="variable">data.middlename</span><span class="specialCharaters">}</span><span class="specialCharaters">&lt;/div&gt;</span></span></div>
+
+                        <div class="codeLine"><span class="func" >&lt;div&gt;<span class="specialCharaters">${</span><span class="variable">data.lastname</span><span class="specialCharaters">}</span><span class="specialCharaters">&lt;/div&gt;</span></span></div>
+
+                        <div class="codeLine"><span class="func" >&lt;div&gt;<span class="specialCharaters">${</span><span class="variable">data.mobilenumber</span><span class="specialCharaters">}</span><span class="specialCharaters">&lt;/div&gt;</span></span></div>
+
+                        <div class="codeLine"><span class="func" >&lt;div&gt;<span class="specialCharaters">${</span><span class="variable">data.accountNumber</span><span class="specialCharaters">}</span><span class="specialCharaters">&lt;/div&gt;</span></span></div>
+
+                        <div class="codeLine"><span class="func" >&lt;div&gt;<span class="specialCharaters">${</span><span class="variable">data.accountBalance</span><span class="specialCharaters">}</span><span class="specialCharaters">&lt;/div&gt;</span><span class="classAtribute">`</span><span class="tag">;</span></div>
+
+                        <div class="codeLine"><span class="specialCharaters"><span class="curleBracket">}</span>)</span><span class="tag">;</span></div>
+
+                </div>
+        </code>
+            </div>
+        </div>
+        <div class="codeDiv" style="text-align: center;margin-top:15px ;">Best view in Destop site if You are using moblie or tablet</div>
+    </main>
+</body>
+
+
+
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #header {
+        background: #486cd87a;
+        width: 99%;
+        height: 50px;
+        overflow: hidden;
+        z-index: 1;
+        /* padding: 0 2px 0 2px; */
+        position: relative;
+        top: 12px;
+        bottom: 12px;
+        margin: 0 0.50% 0 0.50%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .menu {
+        position: relative;
+        top: 35px;
+    }
+
+    .menu ul li {
+        display: inline-block;
+        flex-direction: column;
+        position: relative;
+        top: -35px;
+        left: 131px;
+        padding-right: 88px;
+        font-size: 25px;
+
+    }
+
+    .menu ul li a {
+        color: rgb(3, 1, 1);
+        text-decoration: none;
+    }
+
+    .menu ul li a:hover {
+        color: #1d51b9b7;
+        text-decoration: underline;
+    }
+
+    .active {
+        color: rgb(241, 238, 238);
+        background-color: #0000002b;
+        border-radius: 15px;
+        display: flex;
+    align-items: stretch;
+    width: 140%;;
+    justify-content: center;
+    }
+</style>
+
+<body>
+    <header id="header">
+        <div class="menu">
+            <!-- <i class="fa-solid fa-bars"></i> -->
+            <i class="fa-solid fa-bars" id="showBars"></i>
+            <!-- <i class="fa-solid fa-ghost" id="showBars"></i> -->
+            <ul class="listt">
+                <i class="fa-solid fa-xmark" id="wrong"></i>
+
+                <li><a href="../index.php" class="home " id="activeid" >Home</a></li>
+                <!--  -->
+                 <li><a href="./services_page.html" class="Services " >Services</a>    <!--    -->
+                </li>
+                <li><a href="./about_us_page.html" class="About_us">About us</a></li>
+                <!--  -->
+                <li><a href="./contact_us_page.html" class="Contact_us" >Contact</a></li>
+                <!--  -->
+                <li><a href="./querie_help.html" class="Help" >Help</a></li>
+                <!--  -->
+            </ul>
+
+        </div>
+    </header>
+    <br><br><br>
+       <!-- footer section -->
+     <div id="footer-container" style="padding-top: 110px;">
+
+     </div>
+   
+</body>
+<script>
+     fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+</script>
+
+<script>
+        const headerPath=  window.location.pathname;
+        console.log(headerPath);
+        if (headerPath=="/index.html") {
+        console.log("header");
+        document.querySelector('.home').classList.add('active');
+        }
+        // if (headerPath=="/index111.html") {
+        // console.log("index");
+        // home.classList.add('active');
+        // }
+       else if (headerPath=="/services_page.html") {
+        console.log("services");
+        document.querySelector('.Services').classList.add('active');
+        }
+        else if (headerPath=="/Pages/about_us_page.html") {
+        console.log("about");
+        document.querySelector('.About_us').classList.add('active');
+        }
+        else if (headerPath=="/Pages/contact_us_page.html") {
+        console.log("contact");
+        document.querySelector('.Contact_us') .classList.add('active');
+        }
+        else if (headerPath=="/Pages/querie_help.html") {
+        console.log("querie");
+        document.querySelector('.Help').classList.add('active');
+        }
+    else{
+        console.log('Something wrong');
+    }
+
+
+
+
+    
+</script> 
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <style>
+ iframe {
+        scrollbar-width:none;
+        scrollbar-color: #888 #f1f1f1;
+        border-width: 0px;
+
+    }
+    
+    /* Track */
+    iframe::-webkit-scrollbar-track {
+        background-color: #750e0e;
+    }
+    
+    /* Handle */
+    iframe::-webkit-scrollbar-thumb {
+        background-color: #28037c;
+    }
+
+</style>
+
+<body> -->
+
+    <!-- <frameset rows="50%, 50%" style="width: 400px;">
+        <frame src="pay_UPi.html">
+        <frame src="open_account.html">
+    </frameset> -->
+
+    <!-- <iframe src="Services_page.html" width="500" height="300" loading="lazy" frameborder="0px"></iframe>
+    <iframe src="Services_page.html" width="500" height="300" scrolling="no" allowfullscreen></iframe>
+    <img src="timwpass\pngegg (25).png" alt="df" id="ani" >
+    <img src="timwpass\pngegg (25).png" alt="df" id="anif" >
+    <img src="timwpass\pngegg (25).png" alt="df" id="anig" >
+    <img src="timwpass\pngegg (25).png" alt="df" id="anih" >
+    <img src="timwpass\pngegg (25).png" alt="df" id="anii" >
+    <img src="timwpass\pngegg (25).png" alt="df" id="anij" >
+    <img src="timwpass\pngegg (25).png" alt="df" id="anik" >
+    
+    <img src="timwpass\pngegg (25).png" alt="df" id="anil" >
+
+  
+
+    <img src="timwpass\pngegg (25).png" alt="df" id="ani1" >
+
+    <img src="timwpass\pngegg (25).png" alt="df" id="ani2" >
+
+    <img src="timwpass\pngegg (25).png" alt="df" id="ani3" >
+
+    <img src="timwpass\pngegg (25).png" alt="df" id="ani4" >
+
+    <img src="timwpass\pngegg (25).png" alt="df" id="ani5" >
+
+    <img src="timwpass\pngegg (25).png" alt="df" id="ani6" >
+
+    <img src="timwpass\pngegg (25).png" alt="df" id="ani7" >
+
+    <img src="timwpass\pngegg (25).png" alt="df" id="ani8" >
+
+    <img src="timwpass\pngegg (25).png" alt="df" id="ani9" >
+
+    
+
+
+</body>
+<style>
+#ani{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+#anif{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite .3s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+#anig{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite .6s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+#anih{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite .9s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+#anii{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 1.2s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+#anij{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 1.5s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+#anik{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 1.8s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+#anil{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 2.1s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+#ani1{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 2.4s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+#ani2{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 2.7s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+#ani3{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 3.0s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+#ani4{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 3.3s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+#ani5{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 3.6s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+#ani6{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 3.9s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+#ani7{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 4.2s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+#ani8{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 4.5s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+#ani9{
+    height: 200px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    animation: anim 10s infinite 4.8s forwards normal;
+}
+@keyframes anim {
+    0%{
+        top:0px
+    }
+    50%{top:420px}
+    100%{top:0px}
+    
+}
+
+
+#ironman{
+    height: 500px;
+    position: absolute;
+    bottom: 2px;
+    right: 30vw;
+   
+}
+
+
+</style>  -->
+
+<!-- </html> -->

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footer</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .footer {
+
+        height: auto;
+        width: 100%;
+        background-color: #57595a;
+
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0px;
+
+    }
+
+    .footer a {
+        text-decoration: none;
+        color: #f9f4f4cf;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .footer a:hover {
+        color: #033288cf;
+
+    }
+
+    /* .socialMediaImages{
+        height: 15px;
+        width: 15px;
+        overflow: hidden;
+    } */
+
+
+    .follow_on_social ul li {
+        display: inline-block;
+        padding-left: 14px;
+        margin-left: 5px;
+    }
+
+    /* .footerDiv_1,.footerDiv_2,.footerDiv_3{
+        background-color: transparent;
+    } */
+    .footerDiv_1 ul li,
+    .footerDiv_2 ul li,
+    .footerDiv_3 ul li {
+        margin-top: 5px;
+    }
+
+    .copyright {
+        text-align: center;
+        font-size: 25px;
+        background-color: #727578b8;
+    }
+
+    .MainFooterLinksDiv {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: baseline;
+        flex-direction: row;
+        padding-top: 40px;
+        padding-bottom: 6px;
+        /* background-color: transparent; */
+
+    }
+
+
+
+    .follow_on_social {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 3px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    .Pages,
+    .links,
+    .follow {
+        font-size: 20px;
+        color: black;
+    }
+
+    .footer .follow_on_social i {
+        font-size: 24px;
+    }
+
+    .gmap_canvas {
+        overflow: hidden;
+        background: none !important;
+        width: 700px;
+
+    }
+
+    .mapouter {
+        overflow: hidden;
+        background: none !important;
+        /* width: 100vw; */
+        height: 260px;
+        display: flex;
+        justify-content: space-evenly;
+        padding-bottom: 18px;
+    }
+
+    .gmap_iframe {
+        height: 254px;
+    }
+
+    /* responsive website footer  */
+    @media only screen and (min-width:50px) and (max-width:450px) {
+        .MainFooterLinksDiv {
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .follow_on_social {
+            flex-direction: column;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .follow_on_social ul li {
+            padding-left: 1vw;
+            margin-left: 0.5vw;
+        }
+
+        /* .mapouter{
+    height: 200px;
+} */
+        .copyright {
+            font-size: 13px;
+        }
+
+        .footerDiv_2,
+        .footerDiv_3 {
+            padding-top: 30px;
+        }
+
+    }
+</style>
+
+<body>
+    <div class="footer">
+        <div class="MainFooterLinksDiv">
+            <!-- Pages section div and links of pages -->
+            <div class="footerDiv_1">
+                <span class="Pages">Pages</span>
+                <ul>
+                    <li>
+                        <a href="./index.php" target="_blank">Home</a>
+                    </li>
+                    <li>
+                        <a href="./logIn.php" target="_blank">Services</a>
+                    </li>
+                    <li>
+                        <a href="./Pages/about_us_page.html" target="_blank">About us</a>
+                    </li>
+                    <li>
+                        <a href="./Pages/contact_us_page.html" target="_blank"> Contact us</a>
+                    </li>
+                    <li>
+                        <a href="./Pages/querie_help.html" target="_blank"> Help</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- work on soon -->
+            <div class="footerDiv_2">
+                <span class=" links">Site information</span>
+                <ul>
+                    <li>
+                        <a href="./Documents/Terms_and_conditions.html" target="_blank">Terms and conditions</a>
+                    </li>
+                    <li>
+                        <a href="./Documents/Privacy_policy.html" target="_blank">Privacy policy</a>
+                    </li>
+                    <li>
+                        <a href="./Documents/Cookie_policy.html" target="_blank">Cookie policy</a>
+                    </li>
+                    <li>
+                        <a href="./Documents/Fraud_and_scam_alert.html" target="_blank">Fraud and scam alert</a>
+                    </li>
+                    <li>
+                        <a href="./Documents/Accessibility_policy.html" target="_blank">Accessibility policy</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Links div contians bank shortcuts link  -->
+            <div class="footerDiv_3">
+                <span class="links">links</span>
+                <ul>
+                    <li>
+                        <!--  not work on it -->
+                        <a href="./Active/BlockCard.html" target="_blank">Active/Block Card</a>
+                    </li>
+                    <li>
+                        <a href="./Signup.php" target="_blank">SignUp</a>
+                    </li>
+                    <li>
+                        <a href="./logIn.php" target="_blank">LogIn</a>
+                    </li>
+                    <li>
+                        <a href="./loan_details.html" target="_blank">Loans details</a>
+                    </li>
+                    
+
+                    <li>
+                        <a href="./open_account.php" target="_blank">Open Account</a>
+                    </li>
+                    <li>
+                        <a href="./closeAccount.php" target="_blank">Close Account</a>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div class="footerDiv_3">
+                <span class="links">Developer APIs</span>
+                <ul>
+                    <li>
+                        <a href="../open_account.php" target="_blank">Developer</a>
+                    </li>
+                    <li>
+                        <a href=".../open_account.php" target="_blank">Documatation</a>
+                    </li>
+                    <li>
+                        <a href="../open_account.php" target="_blank">LogIn for APIs</a>
+                    </li>
+                    <li>
+                        <a href="../APIs_Links.html" target="_blank">APIs</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- social media div contians social media link with images  -->
+        <div class="follow_on_social">
+            <span class="follow">Contact Us </span>
+            <ul>
+
+                <li>
+                    <a href="#" target="_blank">
+                        <span class="socialMediaImages">
+                            <i class="fa-solid fa-globe"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/facebook/" target="_blank">
+                        <span class="socialMediaImages">
+                            <i class="fa-brands fa-square-facebook"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/home?lang=en" target="_blank">
+                        <span class="socialMediaImages">
+                            <i class="fa-brands fa-square-x-twitter"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/rahulsharma21110?igshid=OGY3MTU3OGY1Mw==" target="_blank">
+                        <span class="socialMediaImages">
+                            <i class="fa-brands fa-square-instagram"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtube.com/@amazingshorts5264?si=rEMXlGACSFRM_YUC" target="_blank">
+                        <span class="socialMediaImages">
+                            <i class="fa-brands fa-youtube"></i>
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="www.linkedin.com/in/rahul-sharma-6969b3280" target="_blank">
+                        <span class="socialMediaImages">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Rahulsharma2111" target="_blank">
+                        <span class="socialMediaImages">
+                            <i class="fa-brands fa-github"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+
+                    <a href="tel:+919602353233">
+                        <span class="socialMediaImages">
+                            <i class="fa-solid fa-square-phone"></i>
+                        </span>
+                    </a>
+
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="mapouter">
+            <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no"
+                    marginheight="0" marginwidth="0"
+                    src="https://maps.google.com/maps?width=551&amp;height=416&amp;hl=en&amp;q=Harnath vatika, Narayan Vihar, Jaipur, Rajasthan 302026&amp;t=k&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            </div>
+        </div>
+        <!-- Harnath vatika, Narayan Vihar, Jaipur, Rajasthan 302026-->
+        <!-- copyright div contian right of website -->
+        <div class="copyright">@ 2023 All rights reserve from Apana Bank</div>
+    </div>
+
+
+
+</body>
+
+</html>

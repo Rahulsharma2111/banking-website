@@ -1,0 +1,392 @@
+:root {
+    --color1: #1f84f8;
+    --color2: #0844f4;
+    --color3: #c2e6ff;
+    --color4: #b7b8bc;
+    --color5: #c2e6ff;
+    --color6: #c2e6ff;
+    /* color: var(--color1); */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    overflow-x: hidden;
+    /* margin: 2px; */
+}
+
+.well {
+    width: 100%;
+    height: 152px;
+    background-image: url('./bank_images/deposits money.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    backdrop-filter: blur(20px);
+    background-color: rgba(56, 53, 53, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    text-shadow: 1px 7px 5px #1e1e1ed4;
+    font-weight: bold;
+    color: #0844f4;
+    /* color: #3a3a3be3; */
+    opacity: 0;
+    animation: animate 3s ease forwards;
+    transition: 1s;
+
+
+}
+
+
+.header {
+    /* background:#567be4; */
+    background: #b7b8bc;
+    height: 45px;
+    width: 0%;
+    /* height: 50px; */
+    overflow: hidden;
+    z-index: 1;
+    padding: 5px 2px 0 2px;
+
+    animation: headerAnimate 1.5s ease forwards;
+    transition: 1.5s;
+
+}
+
+@keyframes headerAnimate {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+
+    }
+
+}
+
+/* .nar_bar {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+
+.logo {
+    position: relative;
+    bottom: -200px;
+    animation: bottomTOtop 0.7s forwards ease;
+    animation-delay: 1s;
+    transition: .5s;
+}
+
+@keyframes bottomTOtop {
+    0% {
+        bottom: -200px;
+
+    }
+
+    100% {
+        bottom: 2px;
+    }
+
+}
+
+/* } */
+
+.logo_img {
+    border: white 2px solid;
+    border-radius: 50%;
+    width: 43px;
+    height: 40px;
+    position: absolute;
+    left: 30px;
+
+}
+
+.menu {
+    height: 100%;
+    position: relative;
+    margin-top: auto;
+    display: flex;
+}
+
+.menu ul li {
+    display: inline-block;
+    flex-direction: column;
+    position: relative;
+    /* top: -35px; */
+    /* top: 0px; */
+    left: 247px;
+    padding-right: 88px;
+    font-size: 25px;
+}
+
+.menu ul li a {
+    color: rgb(3, 1, 1);
+    text-decoration: none;
+
+    position: relative;
+    top: -200px;
+    animation: topTObottom 1s forwards ease;
+    animation-delay: calc(0.3s * var(--i));
+    transition: .3s;
+}
+
+@keyframes topTObottom {
+    0% {
+        top: -200px;
+    }
+
+    100% {
+        top: 0px;
+    }
+
+}
+
+/* } */
+.menu ul li a:hover {
+    color: #0844f4;
+    text-decoration: underline;
+}
+
+.button {
+    /* height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; */
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+    flex-direction: column;
+    margin-left: 15vw;
+}
+
+.button_2 {
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 107px;
+    flex-direction: column;
+    margin-right: 15vw;
+    margin-bottom: 55px;
+
+}
+
+.but {
+    height: 35px;
+    width: 130px;
+    margin: 20px 0 0 42px;
+    background-color: #636e87c4;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    border: none;
+    /* border: 2px rgba(117, 118, 119, 0.589) solid; */
+    box-shadow: 12px 12px 12px rgb(114 113 113);
+    border-radius: 25%;
+    cursor: pointer;
+
+}
+
+.but:hover {
+    /* border: 2px rgba(0, 89, 255, 0.589) solid; */
+    background-color: rgba(72, 184, 236, 0.25);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    transition: 0.7s;
+
+}
+
+.but:active {
+    transition: 0.2s;
+    color: #000000d4;
+    /* border: 2px rgba(0, 89, 255, 0.589) solid; */
+    background-color: rgba(72, 184, 236, 0.25);
+    font-weight: bold;
+    transform: translateY(4px);
+
+
+}
+
+.acc {
+    width: 250px;
+    font-size: 20px;
+    color: #191918;
+    opacity: 0;
+    animation: animate 3.5s ease forwards;
+    transition: 1s;
+}
+
+.open_account {
+    margin-top: 46px;
+
+    position: relative;
+    right: 500px;
+    opacity: 0;
+    animation: RightToleft 0.8s ease forwards;
+    animation-delay: calc(0.1s * var(--i));
+    transition: 0.5s;
+}
+
+@keyframes RightToleft {
+    0% {
+        opacity: 0;
+        right: 500px;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+        right: 0;
+    }
+
+}
+
+.cheak_account {
+
+    position: relative;
+    left: 500px;
+    opacity: 0;
+    animation: leftToRight 0.8s ease forwards;
+    transition: 0.5s;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes leftToRight {
+    0% {
+        opacity: 0;
+        left: 500px;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+        left: 0;
+    }
+}
+
+.open_pra {
+    position: relative;
+    top: -8px;
+
+}
+
+.check_pra {
+    position: relative;
+    top: -12px;
+}
+
+.but1 {
+    width: 290px;
+    height: 100px;
+}
+
+.but2 {
+    width: 218px;
+    height: 100px;
+}
+
+
+#img_Ani {
+    position: absolute;
+    left: 61vw;
+    top: 43vh;
+    width: 315px;
+    border-radius: 50%;
+    animation: img_move_ani 6s forwards ease infinite;
+}
+
+@keyframes img_move_ani {
+
+    0%,
+    100% {
+        transform: translateX(30px);
+    }
+
+    50% {
+        transform: translateX(-30px);
+    }
+
+}
+
+#img_Admin {
+    position: absolute;
+    left: 12vw;
+    top: 100vh;
+    width: 315px;
+    border-radius: 50%;
+    animation: img_move_admin 6s forwards ease infinite;
+}
+
+@keyframes img_move_admin {
+
+    0%,
+    100% {
+        transform: translateY(30px);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+
+}
+
+
+.footer {
+    height: auto;
+    overflow: hidden;
+}
+
+.footerAnimation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #3c82dd;
+    overflow-y: hidden;
+    animation: leftSlide 1.5s forwards ease;
+    animation-delay: 1.5s;
+    transition: 1s;
+}
+
+@keyframes leftSlide {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%;
+    }
+
+}
+
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}

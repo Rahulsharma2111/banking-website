@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    #contact {
+        position: fixed;
+        top: 0;
+        height: 55px;
+        width: 100vw;
+        font-size: 35px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* text-align: center; */
+        background-color: aliceblue;
+        z-index: 11111;
+    }
+
+    #main_Section {
+        position: relative;
+        top: 22px;
+        width: 100vw;
+        height: 480px;
+        background-color: rgba(127, 255, 212, 0.616);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #mainFrom {
+        border: 2px solid rgba(0, 0, 0, 0.76);
+        border-radius: 10px;
+        width: 80vw;
+        /* padding: 15px 0px 0px 50px;  */
+        padding-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    input {
+        padding-left: 3px;
+    }
+
+    #messageDetail {
+        resize: none;
+        padding: 10px;
+
+    }
+
+    #sendButton {
+        width: 100%;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #SendBtn {
+        cursor: pointer;
+        height: 100%;
+        width: 45px;
+        font-weight: bold;
+
+    }
+
+    #toll-free {
+        width: 100vw;
+        height: 70px;
+        background-color: rgba(137, 43, 226, 0.685);
+        position: absolute;
+        top: 559px;
+        /* height: calc(55px+70px+480px); */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+
+    }
+
+    footer {
+        background-color: rgba(0, 0, 0, 0.534);
+        width: 100vw;
+        height: auto;
+        padding: 15px 0 25px 0;
+        position: absolute;
+        top: 640px;
+        text-align: center;
+
+    }
+</style>
+<!-- 👀👀👀👀👀 -->
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #header {
+        background: #7d818c4f;
+        /* background: #486cd87a; */
+        width: 99%;
+        height: 50px;
+        overflow: hidden;
+        z-index: 1;
+        /* padding: 0 2px 0 2px; */
+        position: relative;
+        top: 12px;
+        bottom: 12px;
+        margin: 0 0.50% 0 0.50%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .menu {
+        position: relative;
+        top: 35px;
+    }
+
+    .menu ul li {
+        display: inline-block;
+        flex-direction: column;
+        position: relative;
+        top: -35px;
+        left: 5vw;
+        /* left: 131px; */
+        padding-right: 88px;
+        font-size: 25px;
+
+    }
+
+    .menu ul li a {
+        color: rgb(3, 1, 1);
+        text-decoration: none;
+    }
+
+    .menu ul li a:hover {
+        color: #1d51b9b7;
+        text-decoration: underline;
+    }
+
+    .active {
+        color: rgb(241, 238, 238);
+        background-color: #0000002b;
+        border-radius: 15px;
+        display: flex;
+        align-items: stretch;
+        width: 140%;
+        justify-content: center;
+    }
+</style>
+<!-- Responsive about us page -->
+
+<!-- 👀👀👀👀👀👀👀 -->
+<style>
+    #responive_icon,
+    #showBars,
+    #wrong {
+
+        display: none;
+    }
+
+
+
+    @media only screen and (min-width:150px) and (max-width:850px) {
+
+        /* body{
+    width: 100vw;
+    overflow-x: hidden;
+    } */
+        html {
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        #responive_icon {
+            position: absolute;
+            right: 56px;
+            /* right: 40px; */
+            top: 15px;
+            font-size: 23px;
+            display: block;
+        }
+
+        #showBars {
+            display: block;
+            position: absolute;
+
+        }
+
+        #header {
+            overflow: visible;
+        }
+
+        .menu {
+
+            background-color: antiquewhite;
+            position: absolute;
+            top: 0;
+            /* right: 0; */
+            right: -291px;
+            height: 235px;
+            width: 278px;
+            border-radius: 30px 0px 0px 30px;
+            transition: 0.4s ease-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .listt {
+            display: block;
+            position: absolute;
+            top: 84px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 9px;
+            margin-left: -25px;
+        }
+
+    }
+
+
+
+    @media only screen and (min-width:380px) and (max-width:750px) {
+        #messageDetail {
+            width: 58vw;
+            height: 168px;
+        }
+    }
+
+    @media only screen and (min-width:150px) and (max-width:379px) {
+        #messageDetail {
+            width: 45vw;
+            height: 168px;
+            margin-top: -36px;
+        }
+
+        .inputResponsiveDiv {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+
+    }
+</style>
+<!-- 👀👀👀👀👀 -->
+
+<body>
+    <!-- <header>
+
+        <div id="contact">Apana Bank</div>
+    </header> -->
+
+    <!-- 👀👀👀👀👀👀 -->
+    <header id="header">
+        <div class="menu">
+
+            <!-- <i class="fa-solid fa-bars" id="showBars"></i> -->
+
+            <ul class="listt">
+                <!-- <i class="fa-solid fa-xmark" id="wrong"></i> -->
+
+                <li><a href="../index.php" class="home " id="activeid">Home</a></li>
+                <!--  -->
+                <li><a href="../logIn.php" class="Services ">Services</a> </li>
+                <!--    -->
+                <li><a href="./about_us_page.html" class="About_us">About us</a></li>
+                <!--  -->
+                <li><a href="./contact_us_page.html" class="Contact_us">Contact</a></li>
+                <!--  -->
+                <li><a href="./querie_help.html" class="Help">Help</a></li>
+                <!--  -->
+            </ul>
+
+        </div>
+
+        <span id="responive_icon">
+            <i class="fa-solid fa-bars" id="showBars"></i>
+            <i class="fa-solid fa-xmark" id="wrong"></i>
+        </span>
+
+    </header>
+    <!-- 👀👀👀👀👀👀 -->
+    <main id="main_Section">
+        <div id="mainFrom">
+            <form action="" method="post">
+                <div id="formDetails">
+                    <!-- User Name section -->
+                    <div id="username" class="inputResponsiveDiv">
+                        <Span>Name : </Span>
+                        <input type="text" placeholder="Name" name="" id="">
+                    </div>
+                    <br>
+
+                    <!-- Mobile Number  Section -->
+                    <div id="user-mobile-number" class="inputResponsiveDiv">
+                        <span>Contact No. : </span>
+                        <input type="number" placeholder="Contact Number" name="" id="">
+                    </div>
+                    <br>
+
+                    <!-- Email  Section -->
+                    <div id="userEmail" class="inputResponsiveDiv">
+                        <span>E-Mail : </span>
+                        <input type="email" placeholder="E-Mail" name="" id="">
+                    </div>
+                    <br>
+
+                    <!-- Message  Section -->
+                    <div id="Message" class="inputResponsiveDiv">
+                        <span>Message : </span><br><br>
+                        <textarea name="" id="messageDetail" cols="70" rows="13"
+                            placeholder="Type message here|"></textarea>
+                    </div>
+                    <br>
+
+                    <!-- Send Button -->
+                    <div id="sendButton">
+                        <!-- <span>Message : </span><br> -->
+                        <input type="button" id="SendBtn" value="SEND">
+                        <!-- <button id="SendBtn">Send</button> -->
+                    </div>
+                    <br>
+
+
+                </div>
+
+            </form>
+        </div>
+    </main>
+    <section>
+        <div id="toll-free">
+            <span id="contact_details">
+                <span>E-mail : </span>
+                <a href="mailto:apnabank@email.com">apnabank@email.com</a>
+                <br><br>
+                <span>Toll-Free Number : </span>
+                <a href="tel:+91 7666122288">+91 7666122288</a>
+            </span>
+        </div>
+    </section>
+
+    <!-- footer section -->
+    <div id="footer-container" style="padding-top: 110px;">
+
+    </div>
+
+
+
+</body>
+<!-- 👀👀👀👀👀 -->
+
+
+<script>
+    const headerPath = window.location.pathname;
+    console.log(headerPath);
+    if (headerPath == "/index.html") {
+        console.log("header");
+        document.querySelector('.home').classList.add('active');
+    }
+
+    else if (headerPath == "/logIn.php") {
+        console.log("services");
+        document.querySelector('.Services').classList.add('active');
+    }
+    else if (headerPath == "/Pages/about_us_page.html") {
+        console.log("about");
+        document.querySelector('.About_us').classList.add('active');
+    }
+    else if (headerPath == "/Pages/contact_us_page.html") {
+        console.log("contact");
+        document.querySelector('.Contact_us').classList.add('active');
+    }
+    else if (headerPath == "/Pages/querie_help.html") {
+        console.log("querie");
+        document.querySelector('.Help').classList.add('active');
+    }
+    else {
+        console.log('Something wrong');
+    }
+
+
+
+    // For Responsive nar script
+
+    const showBars = document.getElementById("showBars");
+    const wrong = document.getElementById("wrong");
+    //     const computedStylee = getComputedStyle(menuUL);
+    // const leftt= computedStylee.color;
+    showBars.addEventListener('click', () => {
+        const menuUL = document.getElementsByClassName("menu")[0];
+        if (getComputedStyle(menuUL).right === "-291px") {
+            menuUL.style.right = "0px";
+            showBars.style.display = "none";
+            wrong.style.display = "block";
+
+        }
+        // else {
+        //     menuUL.style.left = "500px";
+        // }
+
+    });
+    wrong.addEventListener('click', () => {
+        const menuUL = document.getElementsByClassName("menu")[0];
+        if (getComputedStyle(menuUL).right === "0px") {
+            menuUL.style.right = "-291px";
+            wrong.style.display = "none";
+            showBars.style.display = "block";
+
+        }
+        // if ( getComputedStyle(menuUL).visibility === "hidden") {
+        //     menuUL.style.visibility = "visible";   
+        // }else {
+        //     menuUL.style.visibility = "hidden";
+        // }
+
+
+    });
+
+
+</script>
+
+<!-- 👀👀👀👀👀 -->
+
+<script>
+
+fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+</script>
+
+</html>

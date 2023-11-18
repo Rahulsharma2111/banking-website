@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qyerieed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #helpSupport {
+        /* height: 100vh; */
+        margin-top: 60px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+
+    #comment {
+        width: 80vw;
+        min-height: 32px;
+        max-height: 140px;
+        height: auto;
+        padding-left: 15px;
+        resize: none;
+        /* margin-top: 139px; */
+        font-size: 18px;
+        font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        position: fixed;
+        left: 36px;
+        bottom: 9px
+    }
+
+    #questionSend {
+        height: 32px;
+        width: 75px;
+        position: fixed;
+        right: 7vw;
+        bottom: 9px;
+    }
+
+    #displayQuestion {
+        max-width: 400px;
+        position: absolute;
+        left: 40px;
+        top: 120px;
+        border-radius: 11%;
+        padding: 5px 20px 15px 5px;
+        /* padding-bottom: 15px;
+        padding-right: ; */
+
+        /* background-color: black; */
+    }
+
+    #cancelRequest {
+        height: 34px;
+        width: 113px;
+        position: relative;
+        right: 0px;
+        bottom: -288px;
+        display: none;
+    }
+
+    #questionEdit {
+        height: 34px;
+        width: 113px;
+        position: relative;
+        right: 11px;
+        bottom: -288px;
+        display: none;
+    }
+
+    #todayS_date {
+        position: relative;
+        top: -35px;
+        user-select: none;
+        /* display: flex;
+align-items: center;
+justify-content: center; */
+    }
+
+    #Edit-Delete {
+        /* height: 34px;
+        width: 113px; */
+        position: relative;
+        left: -443px;
+        bottom: -34px;
+        display: none;
+    }
+</style>
+<!-- 👀👀👀👀👀👀 -->
+<style>
+    #header {
+        /* background: #486cd87a; */
+        background: #d7d8db;
+        width: 99%;
+        height: 50px;
+        overflow: hidden;
+        z-index: 1;
+        /* padding: 0 2px 0 2px; */
+        position: relative;
+        top: 12px;
+        bottom: 12px;
+        margin: 0 0.50% 0 0.50%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .menu {
+        position: relative;
+        top: 35px;
+    }
+
+    .menu ul li {
+        display: inline-block;
+        flex-direction: column;
+        position: relative;
+        top: -35px;
+        left: 131px;
+        padding-right: 88px;
+        font-size: 25px;
+
+    }
+
+    .menu ul li a {
+        color: rgb(3, 1, 1);
+        text-decoration: none;
+    }
+
+    .menu ul li a:hover {
+        color: #1d51b9b7;
+        text-decoration: underline;
+    }
+
+    .active {
+        color: rgb(241, 238, 238);
+        background-color: #0000002b;
+        border-radius: 15px;
+        display: flex;
+        align-items: stretch;
+        width: 140%;
+        ;
+        justify-content: center;
+    }
+</style>
+<style>
+    #responive_icon,
+    #showBars,
+    #wrong {
+
+        display: none;
+    }
+
+
+
+    @media only screen and (min-width:150px) and (max-width:850px) {
+
+        body {
+            overflow-x: hidden;
+            height: 100vh;
+        }
+
+        html {
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        #responive_icon {
+            position: absolute;
+            right: 56px;
+            /* right: 40px; */
+            top: 15px;
+            font-size: 23px;
+            display: block;
+        }
+
+        #showBars {
+            display: block;
+            position: absolute;
+
+        }
+
+        #header {
+            overflow: visible;
+        }
+
+        .menu {
+
+            background-color: antiquewhite;
+            position: absolute;
+            top: 0;
+            /* right: 0; */
+            right: -291px;
+            height: 235px;
+            width: 278px;
+            border-radius: 30px 0px 0px 30px;
+            transition: 0.4s ease-out;
+            display: flex;
+            /* justify-content: center; */
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .listt {
+            display: block;
+            position: absolute;
+            top: 84px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 9px;
+            margin-left: -25px;
+        }
+
+    }
+</style>
+
+
+<!-- 👀👀👀👀👀👀 -->
+
+<body>
+    <div class="mainContain">
+        <header id="header">
+            <div class="menu">
+                <!-- <i class="fa-solid fa-bars"></i> -->
+                <!-- <i class="fa-solid fa-bars" id="showBars"></i> -->
+                <!-- <i class="fa-solid fa-ghost" id="showBars"></i> -->
+                <ul class="listt">
+                    <!-- <i class="fa-solid fa-xmark" id="wrong"></i> -->
+
+                    <li><a href="../index.php" class="home " id="activeid">Home</a></li>
+                    <!--  -->
+                    <li><a href="../logIn.php" class="Services ">Services</a> <!--    -->
+                    </li>
+                    <li><a href="./about_us_page.html" class="About_us">About us</a></li>
+                    <!--  -->
+                    <li><a href="./contact_us_page.html" class="Contact_us">Contact</a></li>
+                    <!--  -->
+                    <li><a href="./querie_help.html" class="Help">Help</a></li>
+                    <!--  -->
+                </ul>
+
+            </div>
+            <span id="responive_icon">
+                <i class="fa-solid fa-bars" id="showBars"></i>
+                <i class="fa-solid fa-xmark" id="wrong"></i>
+            </span>
+
+        </header>
+
+        <!-- <div id="divheader">Help and Support </div> -->
+        <div id="helpSupport">
+            <div id="todayS_date"></div>
+
+            <!-- 👀👀👀 -->
+            <div><input type="checkbox" name="" id="Edit-Delete">
+
+                <span id="displayQuestion"> </span>
+            </div>
+            <div id="commentandbtn">
+                <textarea name="helpSupport" id="comment" cols="20" rows="10"
+                    placeholder="Ask your question here"></textarea>
+                <input type="button" id="questionSend" value="Send" onclick="question()">
+
+            </div>
+            <!-- <div> -->
+            <input type="button" id="questionEdit" value="Edit Request">
+            <button id="cancelRequest">Cancel Request</button>
+            <!-- </div> -->
+        </div>
+    </div>
+ <!-- 👀👀👀👀👀👀 -->
+     <!-- footer section -->
+     <!-- <div id="footer-container" style="padding-top: 110px;">
+
+     </div> -->
+   
+</body>
+<!-- <script>
+     fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+</script> -->
+<script>
+    const headerPath = window.location.pathname;
+    console.log(headerPath);
+    if (headerPath == "/index.html") {
+        console.log("header");
+        document.querySelector('.home').classList.add('active');
+    }
+
+    else if (headerPath == "/logIn.php") {
+        console.log("services");
+        document.querySelector('.Services').classList.add('active');
+    }
+    else if (headerPath == "/Pages/about_us_page.html") {
+        console.log("about");
+        document.querySelector('.About_us').classList.add('active');
+    }
+    else if (headerPath == "/Pages/contact_us_page.html") {
+        console.log("contact");
+        document.querySelector('.Contact_us').classList.add('active');
+    }
+    else if (headerPath == "/Pages/querie_help.html") {
+        console.log("querie");
+        document.querySelector('.Help').classList.add('active');
+    }
+    else {
+        console.log('Something wrong');
+    }
+
+
+
+
+
+</script>
+
+<!-- 👀👀👀👀👀👀 -->
+
+
+
+
+<script defer>
+    const TodayS_date = document.getElementById("todayS_date");
+
+    var openAccountDate = new Date;
+    var date = openAccountDate.getDate();
+    var month = openAccountDate.getMonth();
+    var year = openAccountDate.getFullYear();
+    var day = openAccountDate.getDay();
+
+    switch (day) {
+        case 1:
+            day = "Monday";
+            break;
+        case 2:
+            day = "Tuesday";
+            break;
+        case 3:
+            day = "Wednesday";
+            break;
+        case 4:
+            day = "Thrusday";
+            break;
+        case 5:
+            day = "Friday";
+            break;
+        case 6:
+            day = "Saturday";
+            break;
+        case 7:
+            day = "Sunday";
+            break;
+
+        default:
+            break;
+    }
+    TodayS_date.innerText = date + "/" + month + "/" + year + " " + day;
+
+
+
+    function question() {
+
+        var comment = document.getElementById('comment').value;
+        console.log(comment);
+        if (!comment) {
+            alert("please ask the question");
+        }
+        else {
+            localStorage.setItem("Question", comment);
+            var problemSlove = confirm("your problem solve in 48 Hours");
+
+            if (problemSlove == true) {
+                window.location.reload();
+
+            }
+        }
+    }
+
+
+    var data = localStorage.getItem("Question");
+    var displayQuestion = document.getElementById('displayQuestion');
+    // var Edit_Delete = document.getElementById('Edit-Delete');
+
+    if (data != null || data != undefined) {
+
+        displayQuestion.innerHTML = data;
+        displayQuestion.style.border = "2px solid black";
+        displayQuestion.style.height = "auto";
+        displayQuestion.style.max_width = "286px";
+        displayQuestion.style.padding_left = "15px";
+        displayQuestion.style.fontSize = "18px";
+
+        document.getElementById("commentandbtn").style.display = "none";
+        document.getElementById("cancelRequest").style.display = "block";
+        document.getElementById("questionEdit").style.display = "block";
+
+        // document.getElementById("Edit-Delete").style.display = "block";
+
+    }
+    // if(Edit_Delete==checked ){
+    console.log("all right");
+    document.getElementById("cancelRequest").addEventListener("click", function removeRequest() {
+        var confirmm = confirm("Confirm You are Cancel Your Request");
+        if (confirmm == true) {
+
+            localStorage.removeItem('Question');
+            window.location.reload();
+
+        }
+    },
+        document.getElementById('questionEdit').addEventListener('click', () => {
+            document.getElementById("commentandbtn").style.display = "block";
+            document.getElementById("cancelRequest").style.display = "none";
+            document.getElementById("questionEdit").style.display = "none";
+            displayQuestion.style.display = "none";
+
+            if (localStorage.getItem("Question") != null || localStorage.getItem("Question") != undefined) {
+                console.log(localStorage.getItem("Question"));
+
+                comment.innerHTML = localStorage.getItem("Question");
+
+            }
+        })
+
+
+    );
+    // }
+
+    // For Responsive nar script
+
+    const showBars = document.getElementById("showBars");
+    const wrong = document.getElementById("wrong");
+    //     const computedStylee = getComputedStyle(menuUL);
+    // const leftt= computedStylee.color;
+    showBars.addEventListener('click', () => {
+        const menuUL = document.getElementsByClassName("menu")[0];
+        if (getComputedStyle(menuUL).right === "-291px") {
+            menuUL.style.right = "0px";
+            showBars.style.display = "none";
+            wrong.style.display = "block";
+
+        }
+        // else {
+        //     menuUL.style.left = "500px";
+        // }
+
+    });
+    wrong.addEventListener('click', () => {
+        const menuUL = document.getElementsByClassName("menu")[0];
+        if (getComputedStyle(menuUL).right === "0px") {
+            menuUL.style.right = "-291px";
+            wrong.style.display = "none";
+            showBars.style.display = "block";
+
+        }
+        // if ( getComputedStyle(menuUL).visibility === "hidden") {
+        //     menuUL.style.visibility = "visible";   
+        // }else {
+        //     menuUL.style.visibility = "hidden";
+        // }
+
+
+    });
+
+
+</script>
+</body>
+
+</html>
