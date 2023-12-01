@@ -91,7 +91,7 @@ if (isset($_POST['submit'])) {
     $image_AdminPencardBack = $employee_Id . "_AdminPencardBack." . strtolower(pathinfo($_FILES["pen_card_image_back"]["name"], PATHINFO_EXTENSION));
 
     // create folder
-    if (mkdir("C:/xampp/htdocs/bank website using php/Admin_Images_Bank/" . $makefolder_Name)) {
+    if (mkdir("$uploadDirectory/Admin_Images_Bank/" . $makefolder_Name)) {
         echo "folder is created";
     }
     move_uploaded_file($admin_Personalphoto, "$uploadDirectory/Admin_Images_Bank/" . $makefolder_Name . "/" . $image_AdminPersonalPhoto);

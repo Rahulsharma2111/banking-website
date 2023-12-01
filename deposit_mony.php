@@ -106,7 +106,7 @@ session_start();
 // </script>";
 
 if (!isset($_SESSION["username"]) || !isset($_SESSION["accountnumber"])) {
-    header("Location: chekStatusVerfiy.php");
+    header("Location: logIn.php");
     // exit;
 }
 $sessusername = $_SESSION["username"];
@@ -218,7 +218,7 @@ $data = $result->fetch_object();
 
 
 <?php 
-include 'allfunctionHere.php';
+// include 'allfunctionHere.php';
 if (isset($_POST['btnDeposit'])) {
     $accountnumber = $_POST['accountNo']; #Account Number
     $check = $_POST['CheakButton']; #    
@@ -233,8 +233,8 @@ if (isset($_POST['btnDeposit'])) {
 
     //function is calling in allfunctionHere.php(otpfunc()) page
  
-    $OTP=otpfunc();
-    echo $OTP;
+    // $OTP=otpfunc();
+    // echo $OTP;
 
     //otp script
     // echo "<script>

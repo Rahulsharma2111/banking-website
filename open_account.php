@@ -32,19 +32,19 @@
 
 <?php
 
-include 'PHPauthemtication.php';
-session_start();
-if (!isset($_SESSION["username"]) || !isset($_SESSION["useremail"]) && !isset($_SESSION["Password"])) {
-    header("Location: Signup.php");
-    exit;
-}
-
-$username = $_SESSION["username"];
-$useremail = $_SESSION["useremail"];
-$userpassword = $_SESSION["Password"];
-// echo $username;
-// echo $useremail;
-// echo $userpassword;
+// include 'PHPauthemtication.php';
+// session_start();
+// if (!isset($_SESSION["username"]) || !isset($_SESSION["useremail"]) && !isset($_SESSION["Password"])) {
+//     header("Location: Signup.php");
+//     exit;
+// }
+// 
+// $username = $_SESSION["username"];
+// $useremail = $_SESSION["useremail"];
+// $userpassword = $_SESSION["Password"];
+// // echo $username;
+// // echo $useremail;
+// // echo $userpassword;
 
 ?>
 
@@ -303,7 +303,8 @@ $userpassword = $_SESSION["Password"];
 
                 <input type="Reset" id="resetbtn" onclick="window.document.location.reload()">
 
-                <input type="button" value="Cancel" id="cancelbtn" onclick="window.document.location.replace('index.php')">
+                <input type="button" value="Cancel" id="cancelbtn"
+                    onclick="window.document.location.replace('index.php')">
             </div>
             <br><br>
         </form>
@@ -321,7 +322,20 @@ $userpassword = $_SESSION["Password"];
 </script>
 
 <?php
+$uploadDirectory = $_SERVER['DOCUMENT_ROOT'];
+include $uploadDirectory . 'PHPauthemtication.php';
+session_start();
+if (!isset($_SESSION["username"]) || !isset($_SESSION["useremail"]) && !isset($_SESSION["Password"])) {
+    header("Location: Signup.php");
+    exit;
+}
 
+$username = $_SESSION["username"];
+$useremail = $_SESSION["useremail"];
+$userpassword = $_SESSION["Password"];
+// echo $username;
+// echo $useremail;
+// echo $userpassword;
 
 // include 'PHPauthemtication.php';
 // session_start();
@@ -365,7 +379,7 @@ if (isset($_POST['submit'])) {
     $aadharNumber = $_POST['aadharNumber'];
     $penCardNumber = $_POST['penCardNumber'];
 
-    if ($firstname == '' ||$firstname==null) {
+    if ($firstname == '' || $firstname == null) {
         echo "<script>
         errorDisplay.style.display = 'flex';
 errorDisplay.innerHTML = 'Enter Firstname';
@@ -373,7 +387,7 @@ setInterval(errorHideTime, 6000);
 </script>";
         die();
     }
-    if ($lastname  == '' || $lastname ==null) {
+    if ($lastname == '' || $lastname == null) {
         echo "<script>
         errorDisplay.style.display = 'flex';
 errorDisplay.innerHTML = 'Enter Firstname';
@@ -421,26 +435,26 @@ setInterval(errorHideTime, 6000);
     $image_PencardBack = $accountNumber . "_PencardBack." . strtolower(pathinfo($_FILES["pen_card_image_back"]["name"], PATHINFO_EXTENSION));
 
     // create folder
-    if (mkdir("C:/xampp/htdocs/bank website using php/Bank_customer_image/" . $makefolder_Name)) {
+    if (mkdir("$uploadDirectory/Bank_customer_image/" . $makefolder_Name)) {
         echo "folder is created";
     }
-    move_uploaded_file($Personalphoto, "C:/xampp/htdocs/bank website using php/Bank_customer_image/" . $makefolder_Name . "/" . $image_PersonalPhoto);
+    move_uploaded_file($Personalphoto, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_PersonalPhoto);
 
 
-    move_uploaded_file($marksheet10, "C:/xampp/htdocs/bank website using php/Bank_customer_image/" . $makefolder_Name . "/" . $image_class10Marksheet);
+    move_uploaded_file($marksheet10, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_class10Marksheet);
 
-    move_uploaded_file($birth_certificate, "C:/xampp/htdocs/bank website using php/Bank_customer_image/" . $makefolder_Name . "/" . $image_birthCertificate);
+    move_uploaded_file($birth_certificate, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_birthCertificate);
 
-    move_uploaded_file($aadhar_card_image_front, "C:/xampp/htdocs/bank website using php/Bank_customer_image/" . $makefolder_Name . "/" . $image_AadharcardFront);
+    move_uploaded_file($aadhar_card_image_front, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_AadharcardFront);
 
-    move_uploaded_file($aadhar_card_image_back, "C:/xampp/htdocs/bank website using php/Bank_customer_image/" . $makefolder_Name . "/" . $image_AadharcardBack);
+    move_uploaded_file($aadhar_card_image_back, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_AadharcardBack);
 
-    move_uploaded_file($pen_card_image_front, "C:/xampp/htdocs/bank website using php/Bank_customer_image/" . $makefolder_Name . "/" . $image_PencardFront);
+    move_uploaded_file($pen_card_image_front, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_PencardFront);
 
-    move_uploaded_file($pen_card_image_back, "C:/xampp/htdocs/bank website using php/Bank_customer_image/" . $makefolder_Name . "/" . $image_PencardBack);
+    move_uploaded_file($pen_card_image_back, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_PencardBack);
 
     echo "Image Upload successfully";
-//  echo $accountNumber;
+    //  echo $accountNumber;
 
     $sql1 = "SELECT * FROM bankcustmordetails WHERE  accountNumber= '$accountNumber'";
     $resultsql1 = $con->query($sql1);
@@ -454,7 +468,7 @@ setInterval(errorHideTime, 6000);
     // if ($data->accountNumber == $accountNumber) {
     if ($dataAccountNumber == $accountNumber) {
         die("Something Wrong Please try again");
-//         $accountNumber = accNumber();
+        //         $accountNumber = accNumber();
 //        
 //         date_default_timezone_set('Asia/Kolkata');
 //         $currentDateTime = date("Y-m-d H:i:s");
@@ -470,12 +484,12 @@ setInterval(errorHideTime, 6000);
 // 
 //         header("Location:chekStatusVerfiy.php");
 
-    } else if($data->accountNumber == '') {
+    } else if ($data->accountNumber == '') {
 
         date_default_timezone_set('Asia/Kolkata');
         $currentDateTime = date("Y-m-d H:i:s");
 
-        $sql1 = "INSERT INTO bankcustmordetails (	firstname, middlename, lastname, fathername, mothername, mobilenumber, emailid, username, userpassword, temparyaddress, premananetaddress, city, pincode, statee, DOB, country, caste, gender, aadharcardnumber, pencardnumber, accountNumber, personal_Image, class10Marksheet, birth_certificate, Aadharcard_Front, Aadharcard_Back, Pencard_Front, Pencard_Back, dateToCreateAccount, updateAccount ) VALUES ( '$firstname', '$middlename', '$lastname',' $fathername','$mothername','$mobilenumber','$emailid', '$username', '$userpassword', '$temperey_address', '$permanant_address', '$city', '$pincode', '$state', '$DOB', '$country_name', '$Caste', '$gender', '$aadharNumber', '$penCardNumber', '$accountNumber','$image_PersonalPhoto', '$image_class10Marksheet', '$image_birthCertificate', '$image_AadharcardFront', '$image_AadharcardBack', '$image_PencardFront','$image_PencardBack','$currentDateTime','$currentDateTime' )";
+        $sql1 = "INSERT INTO bankcustmordetails (	firstname, middlename, lastname, fathername, mothername, mobilenumber, emailid, username, userpassword, temparyaddress, premananetaddress, city, pincode, statee, DOB, country, caste, gender, aadharcardnumber, pencardnumber,UPI_Id, accountNumber, personal_Image, class10Marksheet, birth_certificate, Aadharcard_Front, Aadharcard_Back, Pencard_Front, Pencard_Back, dateToCreateAccount, updateAccount ) VALUES ( '$firstname', '$middlename', '$lastname',' $fathername','$mothername','$mobilenumber','$emailid', '$username', '$userpassword', '$temperey_address', '$permanant_address', '$city', '$pincode', '$state', '$DOB', '$country_name', '$Caste', '$gender', '$aadharNumber', '$penCardNumber','', '$accountNumber','$image_PersonalPhoto', '$image_class10Marksheet', '$image_birthCertificate', '$image_AadharcardFront', '$image_AadharcardBack', '$image_PencardFront','$image_PencardBack','$currentDateTime','$currentDateTime' )";
         echo $sql1;
         $con->query($sql1);
 
@@ -484,7 +498,7 @@ setInterval(errorHideTime, 6000);
         $con->query($sql2);
 
 
-        header("Location:chekStatusVerfiy.php");
+        header("Location:logIn.php");
     }
 
 

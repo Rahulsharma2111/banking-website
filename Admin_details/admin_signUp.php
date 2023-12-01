@@ -40,13 +40,14 @@ if (isset($_POST['signupbtn'])) {
         // echo $sql;
         $resultsql = $con->query($sql);
         $data = $resultsql->fetch_object();
+
+        // echo "$uploadDirectory/Admin_details/Admin.php";
+        // exit;
+
         $dataUsername = $data->adminUsername;
         $dataemailid = $data->adminEmail;
 
 
-
-
-        // if ($dataUsername == $username || $dataemailid == $useremail) {
         if ($dataUsername == $username) {
             echo "Please Choose Unique <b> Username</b>";
             exit;
@@ -61,10 +62,10 @@ if (isset($_POST['signupbtn'])) {
 
 
             $_SESSION["sessAdminUsername"] = $username;
-            $_SESSION["sessAdminUseremail"] = $useremail;
+            $_SESSION["sessAdminEmail"] = $useremail;
             $_SESSION["sessAdminPassword"] = $Password;
 
-            header("Location: ./Admin.php");
+            header("Location: $uploadDirectory/Admin_details/Admin.php");
 
         } else {
             echo "Please enter same password in the place of confirm password";
@@ -79,7 +80,6 @@ if (isset($_POST['signupbtn'])) {
     if ($con->query($sql1) === TRUE) {
         echo "Record inserted successfully.";
     } else {
-        // header("alert.html");
         echo " Error: <br>" . $con->error;
     }
 
@@ -140,6 +140,7 @@ $con->close();
         border-radius: 15px;
         border-color: #000000;
         color: #fff;
+        cursor: pointer;
         background-color: #3a2c2cc7;
 
     }
@@ -204,12 +205,13 @@ $con->close();
             <br><br>
             <!-- <span> -->
             <input type="password" name="confirmPassword" id="confirmpasswordVerfiy" placeholder=" confirm Password"
-                onkeyup="confirmPasswordValidation(this.value)" />
+                onkeyup="confirmPasswordValidation(this.value)" 
+                />
             <div class="validation confirmPasswordError"> </div>
             <br>
             <br>
             <input type="submit" name="signupbtn" value="Sign Up" id="loninBtnVerfiy" disabled="disabled">
-
+<!--  -->
             <P style="font-size: 16px;"><a href="./adminLogin.php">LogIn</a></P>
 
         </form>
@@ -343,6 +345,7 @@ $con->close();
             validation[2].innerHTML = "";
             signUpbtn.setAttribute('disabled', 'disabled');
             signUpbtn.style.opacity = "0.7";
+            validate = false;
             return false;
         }
 
