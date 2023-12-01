@@ -14,11 +14,6 @@ include $uploadDirectory . '/PHPauthemtication.php';
 // include '../PHPauthemtication.php';
 session_start();
 
-// Simulated user data (replace with database retrieval)
-// $validUsername = "user";
-// $validuseremail = "useremail";
-// $validPassword = "password";
-
 
 if (isset($_POST['signupbtn'])) {
 
@@ -35,14 +30,17 @@ if (isset($_POST['signupbtn'])) {
     } else {
 
         $sql = "SELECT adminUsername,adminEmail FROM admin_details WHERE  adminUsername= '$username' OR adminEmail='$useremail'";
-        // 
+        // Checking for valid username and password length
+        // if (!preg_match("/^[a-zA-Z]{2,30}$/", $username)) {
+        //     die("Please Enter a Valid Username");
+        // }
+        // if (!filter_var($useremail, FILTER_VALIDATE_EMAIL)) {
+        //     die('Invalid email format');
+        // }
 
         // echo $sql;
         $resultsql = $con->query($sql);
         $data = $resultsql->fetch_object();
-
-        // echo "$uploadDirectory/Admin_details/Admin.php";
-        // exit;
 
         $dataUsername = $data->adminUsername;
         $dataemailid = $data->adminEmail;
@@ -64,7 +62,6 @@ if (isset($_POST['signupbtn'])) {
             $_SESSION["sessAdminUsername"] = $username;
             $_SESSION["sessAdminEmail"] = $useremail;
             $_SESSION["sessAdminPassword"] = $Password;
-
             header("Location: $uploadDirectory/Admin_details/Admin.php");
 
         } else {
@@ -77,19 +74,20 @@ if (isset($_POST['signupbtn'])) {
 
 
 
-    if ($con->query($sql1) === TRUE) {
-        echo "Record inserted successfully.";
-    } else {
-        echo " Error: <br>" . $con->error;
-    }
+    // if ($con->query($sql) === TRUE) {
+    //     echo "Record inserted successfully.";
+    // } else {
+    //     echo " Error: <br>" . $con->error;
+    // }
+
+$con->close();
 
 }
 
 
-$con->close();
-
 
 ?>
+
 <style>
     body {
         display: flex;
@@ -204,14 +202,11 @@ $con->close();
             <div class="validation PasswordError"> </div>
             <br><br>
             <!-- <span> -->
-            <input type="password" name="confirmPassword" id="confirmpasswordVerfiy" placeholder=" confirm Password"
-                onkeyup="confirmPasswordValidation(this.value)" 
-                />
+            <input type="password" name="confirmPassword" id="confirmpasswordVerfiy" placeholder=" confirm Password" onkeyup="confirmPasswordValidation(this.value)" />
             <div class="validation confirmPasswordError"> </div>
             <br>
             <br>
             <input type="submit" name="signupbtn" value="Sign Up" id="loninBtnVerfiy" disabled="disabled">
-<!--  -->
             <P style="font-size: 16px;"><a href="./adminLogin.php">LogIn</a></P>
 
         </form>
@@ -224,7 +219,7 @@ $con->close();
     const useremailError = document.getElementById('useremailError');
     const PasswordError = document.getElementById('PasswordError');
     const confirmPasswordError = document.getElementById('confirmPasswordError');
-    const signUpbtn = document.getElementById('signUpbtn');
+    const signUpbtn = document.getElementById('loninBtnVerfiy');
     const validation = document.getElementsByClassName('validation');
     let validate = false;
     const lowerCase = new RegExp('(?=.*[a-z])');
