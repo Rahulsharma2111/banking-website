@@ -214,7 +214,7 @@ $decodedPaymentDetails = json_decode($decodedPaymentDetails, true)['transactions
 // 
 //     }
 // endforeach;
-// ?>
+ ?>
 
 
 <body>

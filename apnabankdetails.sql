@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Dec 01, 2023 at 11:54 AM
+-- Generation Time: Dec 02, 2023 at 06:15 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -53,7 +53,7 @@ INSERT INTO `accountdebitcreditdetails` (`accountNumber`, `accountBalance`, `Deb
 --
 
 CREATE TABLE `admin_details` (
-  `EmpID` mediumint(6) NOT NULL,
+  `EmpID` varchar(25) NOT NULL,
   `adminName` varchar(50) NOT NULL,
   `adminFatherName` char(15) NOT NULL,
   `adminMotherName` char(15) NOT NULL,
@@ -83,9 +83,9 @@ CREATE TABLE `admin_details` (
 --
 
 INSERT INTO `admin_details` (`EmpID`, `adminName`, `adminFatherName`, `adminMotherName`, `adminUsername`, `adminDOB`, `adminEmail`, `adminMobileNumber`, `adminGender`, `adminAddress`, `adminCity`, `adminState`, `adminPincode`, `adminPassword`, `adminAadharCardNumber`, `adminPenCardNumber`, `adminPhoto`, `adminAadharCardFront`, `adminAadharCardBack`, `adminPenCardFront`, `adminPenCardBack`, `DateToCreateAminAccount`, `adminUpdateAccount`) VALUES
-(182279, 'Ram  sharma', 'bhagaw dave', 'mother', 'Apna2111@', '2023-08-11', 'apnabank2111@gmail.com', 1234567458, 'Male', 'bhankrota', 'jaipur', 'Rajasthan', 205101, 'Apna2111@', 123455464333, '412d6huk4ht6', '182279_AdminPersonalPhoto.jpg', '182279_AdminAadharcardFront.jpg', '182279_AdminAadharcardBack.jpg', '182279_AdminPencardFront.gif', '182279_AdminPencardBack.jpg', '2023-12-01 13:45:39', '2023-12-01 13:51:33'),
-(543485, 'Ram  sharma', 'Tharachand shar', 'santi', 'sita12333', '2001-12-25', 'ram@gmail.com', 1234567892, 'Male', 'bhankrota', 'jaipur', 'Rajasthan', 205101, '123', 123455464633, '4p6huk423j', '543485_AdminPersonalPhoto.jpg', '543485_AdminAadharcardFront.jpg', '543485_AdminAadharcardBack.jpg', '543485_AdminPencardFront.png', '543485_AdminPencardBack.jpg', '2023-09-21 00:35:39', '2023-10-07 17:48:28'),
-(498172, 'sita  Devi', 'father', 'mother', 'rahul2111', '1995-01-15', 'rahul123@email.com', 9602353233, 'Female', 'bhankrota jaipur', 'jaipur', 'Jharkhand', 302526, '345', 451455464654, 'sf6565f5s5', '498172_AdminPersonalPhoto.png', '498172_AdminAadharcardFront.jpg', '498172_AdminAadharcardBack.jpg', '498172_AdminPencardFront.jpg', '498172_AdminPencardBack.jpeg', '2023-09-18 02:24:13', '2023-09-21 23:08:23');
+('182279', 'Ram  sharma', 'bhagaw dave', 'mother', 'Apna2111@', '2023-08-11', 'apnabank2111@gmail.com', 1234567458, 'Male', 'bhankrota', 'jaipur', 'Rajasthan', 205101, 'Apna2111@', 123455464333, '412d6huk4ht6', '182279_AdminPersonalPhoto.jpg', '182279_AdminAadharcardFront.jpg', '182279_AdminAadharcardBack.jpg', '182279_AdminPencardFront.gif', '182279_AdminPencardBack.jpg', '2023-12-01 13:45:39', '2023-12-01 13:51:33'),
+('543485', 'Ram  sharma', 'Tharachand shar', 'santi', 'sita12333', '2001-12-25', 'ram@gmail.com', 1234567892, 'Male', 'bhankrota', 'jaipur', 'Rajasthan', 205101, '123', 123455464633, '4p6huk423j', '543485_AdminPersonalPhoto.jpg', '543485_AdminAadharcardFront.jpg', '543485_AdminAadharcardBack.jpg', '543485_AdminPencardFront.png', '543485_AdminPencardBack.jpg', '2023-09-21 00:35:39', '2023-10-07 17:48:28'),
+('498172', 'sita  Devi', 'father', 'mother', 'rahul2111', '1995-01-15', 'rahul123@email.com', 9602353233, 'Female', 'bhankrota jaipur', 'jaipur', 'Jharkhand', 302526, '345', 451455464654, 'sf6565f5s5', '498172_AdminPersonalPhoto.png', '498172_AdminAadharcardFront.jpg', '498172_AdminAadharcardBack.jpg', '498172_AdminPencardFront.jpg', '498172_AdminPencardBack.jpeg', '2023-09-18 02:24:13', '2023-09-21 23:08:23');
 
 -- --------------------------------------------------------
 
@@ -155,7 +155,7 @@ CREATE TABLE `page_counter` (
 --
 
 INSERT INTO `page_counter` (`count`) VALUES
-(343);
+(344);
 
 --
 -- Indexes for dumped tables
