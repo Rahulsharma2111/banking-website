@@ -31,7 +31,18 @@
 <link rel="stylesheet" href="open_acc_style_sheet.css">
 
 <?php
+session_start();
+$uploadDirectory = $_SERVER['DOCUMENT_ROOT'];
+include $uploadDirectory . '/PHPauthemtication.php';
+// echo $uploadDirectory;
 
+if (!isset($_SESSION["username"]) || !isset($_SESSION["useremail"]) && !isset($_SESSION["Password"])) {
+    header("Location: Signup.php");
+    exit;
+}
+$username = $_SESSION["username"];
+$useremail = $_SESSION["useremail"];
+$userpassword = $_SESSION["Password"];
 // include 'PHPauthemtication.php';
 // session_start();
 // if (!isset($_SESSION["username"]) || !isset($_SESSION["useremail"]) && !isset($_SESSION["Password"])) {
@@ -93,17 +104,17 @@
 
             </div>
 
-
-            <div class="email_id">
+ 
+       <!--    <div class="email_id">
                 <div>
                     <label for="email_ID"> Email Id :</label> <input type="email" maxlength=""
                         placeholder="Enter your email id" id="email_ID" name="emailid" required>
-                </div>
+                </div> -->
                 <!-- <div id="passwordDiv">
                     <Label for="password">Password :</Label>
                     <input type="text" placeholder="Please enter password" name="password" id="password">
                 </div> -->
-            </div>
+            <!-- </div> -->
 
             <div class="address">
                 Temperey Address : <input type="text" name="temperey_address" id="Temperey_address"
@@ -322,34 +333,23 @@
 </script>
 
 <?php
-$uploadDirectory = $_SERVER['DOCUMENT_ROOT'];
-include $uploadDirectory . 'PHPauthemtication.php';
-session_start();
-if (!isset($_SESSION["username"]) || !isset($_SESSION["useremail"]) && !isset($_SESSION["Password"])) {
-    header("Location: Signup.php");
-    exit;
-}
-
-$username = $_SESSION["username"];
-$useremail = $_SESSION["useremail"];
-$userpassword = $_SESSION["Password"];
-// echo $username;
-// echo $useremail;
-// echo $userpassword;
-
-// include 'PHPauthemtication.php';
-// session_start();
+// $uploadDirectory = $_SERVER['DOCUMENT_ROOT'];
+// include $uploadDirectory . '/PHPauthemtication.php';
+// // echo $uploadDirectory;
+// 
 // if (!isset($_SESSION["username"]) || !isset($_SESSION["useremail"]) && !isset($_SESSION["Password"])) {
 //     header("Location: Signup.php");
-//     // exit;
+//     exit;
 // }
-// 
+
 // $username = $_SESSION["username"];
 // $useremail = $_SESSION["useremail"];
 // $userpassword = $_SESSION["Password"];
 // echo $username;
 // echo $useremail;
 // echo $userpassword;
+
+
 if (isset($_POST['submit'])) {
 
     // The data from Sign up page
@@ -364,7 +364,8 @@ if (isset($_POST['submit'])) {
     $mobilenumber = $_POST['mobilenumber'];
     // $username = $_POST['username'];
     $username = $_SESSION["username"];
-    $emailid = $_POST['emailid'];
+    $emailid  = $_SESSION["useremail"];
+    // $emailid = $_POST['emailid'];
     // $userpassword = $_POST['password'];
     $userpassword = $_SESSION["Password"];
     $temperey_address = $_POST['temperey_address'];
@@ -473,7 +474,7 @@ setInterval(errorHideTime, 6000);
 //         date_default_timezone_set('Asia/Kolkata');
 //         $currentDateTime = date("Y-m-d H:i:s");
 // 
-//         $sql1 = "INSERT INTO bankcustmordetails (	firstname, middlename, lastname, fathername, mothername, mobilenumber, emailid, username, userpassword, temparyaddress, premananetaddress, city, pincode, statee, DOB, country, caste, gender, aadharcardnumber, pencardnumber, accountNumber, personal_Image, class10Marksheet, birth_certificate, Aadharcard_Front, Aadharcard_Back, Pencard_Front, Pencard_Back, dateToCreateAccount, updateAccount ) VALUES ( '$firstname', '$middlename', '$lastname',' $fathername','$mothername','$mobilenumber','$emailid', '$username', '$userpassword', '$temperey_address', '$permanant_address', '$city', '$pincode', '$state', '$DOB', '$country_name', '$Caste', '$gender', '$aadharNumber', '$penCardNumber', '$accountNumber','$image_PersonalPhoto', '$image_class10Marksheet', '$image_birthCertificate', '$image_AadharcardFront', '$image_AadharcardBack', '$image_PencardFront','$image_PencardBack','$currentDateTime','$currentDateTime' )";
+//         $sql1 = "INSERT INTO bankcustmordetails (firstname, middlename, lastname, fathername, mothername, mobilenumber, emailid, username, userpassword, temparyaddress, premananetaddress, city, pincode, statee, DOB, country, caste, gender, aadharcardnumber, pencardnumber, accountNumber, personal_Image, class10Marksheet, birth_certificate, Aadharcard_Front, Aadharcard_Back, Pencard_Front, Pencard_Back, dateToCreateAccount, updateAccount ) VALUES ( '$firstname', '$middlename', '$lastname',' $fathername','$mothername','$mobilenumber','$emailid', '$username', '$userpassword', '$temperey_address', '$permanant_address', '$city', '$pincode', '$state', '$DOB', '$country_name', '$Caste', '$gender', '$aadharNumber', '$penCardNumber', '$accountNumber','$image_PersonalPhoto', '$image_class10Marksheet', '$image_birthCertificate', '$image_AadharcardFront', '$image_AadharcardBack', '$image_PencardFront','$image_PencardBack','$currentDateTime','$currentDateTime' )";
 //         echo $sql1;
 //         $con->query($sql1);
 // 
@@ -498,17 +499,22 @@ setInterval(errorHideTime, 6000);
         $con->query($sql2);
 
 
-        header("Location:logIn.php");
+        // if ($con->query($sql1) === TRUE) {
+        //     echo "Record inserted successfully.";
+        // } 
+        // else {
+        //     echo "Error: " . $sql1 . "<br>" . $con->error;
+        //     echo "<br>";
+        //     echo "Error: " . $sql2 . "<br>" . $con->error;
+        // }
+
+
+
+        header("Location: logIn.php");
     }
 
 
-    if ($con->query($sql1) === TRUE) {
-        echo "Record inserted successfully.";
-    } else {
-        echo "Error: " . $sql1 . "<br>" . $con->error;
-        echo "<br>";
-        echo "Error: " . $sql2 . "<br>" . $con->error;
-    }
+   
 }
 $con->close();
 
