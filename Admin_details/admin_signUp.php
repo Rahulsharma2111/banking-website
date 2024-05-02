@@ -6,23 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignUp In Apna Bank</title>
 </head>
+
 <?php
-
-$uploadDirectory = $_SERVER['DOCUMENT_ROOT'];
-include $uploadDirectory . '/PHPauthemtication.php';
-
-// include '../PHPauthemtication.php';
 session_start();
+$uploadDirectory = $_SERVER['DOCUMENT_ROOT'];
+// include $uploadDirectory . '/PHPauthemtication.php';
 
+include '../PHPauthemtication.php';
+
+// echo $uploadDirectory;
 
 if (isset($_POST['signupbtn'])) {
 
+    $employeeId = $_POST["employeeId"];
     $username = $_POST["username"];
     $useremail = $_POST["useremail"];
     $Password = $_POST["Password"];
     $confirmPassword = $_POST["confirmPassword"];
 
-
+    echo $employee_Id;
+    echo $useremail;
 
     if ($username == '' && $useremail == '' && $Password == '' && $confirmPassword == '') {
         echo " Please enter the correct Details try again";
@@ -58,11 +61,13 @@ if (isset($_POST['signupbtn'])) {
 
         if ($Password == $confirmPassword) {
 
-
+            echo "success";
+            $_SESSION["sessAdminEmployeeId"] = $employeeId;
             $_SESSION["sessAdminUsername"] = $username;
             $_SESSION["sessAdminEmail"] = $useremail;
             $_SESSION["sessAdminPassword"] = $Password;
-            header("Location: $uploadDirectory/Admin_details/Admin.php");
+            header("Location: ./Admin.php");
+            // header("Location: $uploadDirectory\Admin_details\Admin.php");
 
         } else {
             echo "Please enter same password in the place of confirm password";
@@ -74,11 +79,11 @@ if (isset($_POST['signupbtn'])) {
 
 
 
-    // if ($con->query($sql) === TRUE) {
-    //     echo "Record inserted successfully.";
-    // } else {
-    //     echo " Error: <br>" . $con->error;
-    // }
+    if ($con->query($sql) === TRUE) {
+        echo "Record inserted successfully.";
+    } else {
+        echo " Error: <br>" . $con->error;
+    }
 
 $con->close();
 
@@ -105,7 +110,8 @@ $con->close();
 
     #wrapper {
         width: 315px;
-        height: 315px;
+        /* height: 315px; */
+        height: 330px;
         border: black 2px solid;
         border-radius: 10px;
         text-align: center;
@@ -114,10 +120,10 @@ $con->close();
         justify-content: center;
         align-items: center;
         /* margin-top: 125px; */
-        row-gap: 20px;
+        row-gap: 11px;
         /* z-index: 11; */
         background-color: rgba(197, 165, 165, 0.336);
-        backdrop-filter: blur(3px);
+        backdrop-filter: blur(5px);
 
     }
 
@@ -189,8 +195,10 @@ $con->close();
         <span><b style="color: #000; font-size:18px;">SignUp as Administrator</b></span>
         <form action="./admin_signUp.php" method="POST" onsubmit="return validateForm()">
 
-            <input type="text" name="username" id="UsernameVerfiy" placeholder="Enter Username"
-                onkeyup="UsernameValidation(this.value)" />
+            <input type="text" name="employeeId" id="employeeIdVerfiy" placeholder="Enter Employee Id" />
+            <div class="validation employeeIdError"> </div>
+            <br><br>
+            <input type="text" name="username" id="UsernameVerfiy" placeholder="Enter Username" onkeyup="UsernameValidation(this.value)" />
             <!-- <br> -->
             <div class="validation usernameError"> </div>
             <br><br>
@@ -214,6 +222,7 @@ $con->close();
     </div>
 </body>
 
+<!-- Javascript validation on from value or data -->
 <script>
     const usernameError = document.getElementById('usernameError');
     const useremailError = document.getElementById('useremailError');

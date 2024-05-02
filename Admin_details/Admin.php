@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Account</title>
+    <title>Admin Account</title>
 </head>
 <style>
     body {
@@ -15,16 +15,17 @@
 <link rel="stylesheet" href="../open_acc_style_sheet.css">
 <?php
 
-$uploadDirectory = $_SERVER['DOCUMENT_ROOT'] ;
-include $uploadDirectory.'/PHPauthemtication.php';
+$uploadDirectory = $_SERVER['DOCUMENT_ROOT'];
+include $uploadDirectory . '/PHPauthemtication.php';
 // include '../PHPauthemtication.php';
 session_start();
- $sessAdminUsername=$_SESSION["sessAdminUsername"] ;
- $sessAdminUseremail=$_SESSION["sessAdminUseremail"];
- $sessAdminPassword=$_SESSION["sessAdminPassword"] ;
-if (!isset($sessAdminUsername) || !isset($sessAdminUseremail) || !isset($sessAdminPassword)) {
-    header("Location:./adminLogin.php");
-    // exit;
+$sessAdminEmployeeId = $_SESSION["sessAdminEmployeeId"];
+$sessAdminUsername = $_SESSION["sessAdminUsername"];
+$sessAdminUseremail = $_SESSION["sessAdminEmail"];
+$sessAdminPassword = $_SESSION["sessAdminPassword"];
+if (!isset($sessAdminEmployeeId) || !isset($sessAdminUsername) || !isset($sessAdminUseremail) || !isset($sessAdminPassword)) {
+    header("Location:/Admin_details/admin_signUp.php");
+    exit;
 }
 
 
@@ -32,12 +33,14 @@ if (!isset($sessAdminUsername) || !isset($sessAdminUseremail) || !isset($sessAdm
 // $sessAdminUseremail = $_SESSION["sessAdminUseremail"];
 // $sessAdminPassword = $_SESSION["sessAdminPassword"];
 // 
+// echo $sessAdminEmployeeId;
 // echo $sessAdminUsername;
 // echo $sessAdminUseremail;
 // echo $sessAdminPassword;
 if (isset($_POST['submit'])) {
 
-    echo "everything is right";
+    // echo "everything is right";
+    $employee_Id = $_SESSION["sessAdminEmployeeId"];
     $admin_firstname = $_POST['firstname'];
     $admin_middlename = $_POST['middlename'];
     $admin_lastname = $_POST['lastname'];
@@ -45,7 +48,7 @@ if (isset($_POST['submit'])) {
     $admin_mothername = $_POST['mothername'];
     $admin_mobilenumber = $_POST['mobilenumber'];
     $sessAdminUsername = $_SESSION["sessAdminUsername"];
-    $sessAdminUseremail = $_SESSION["sessAdminUseremail"];
+    $sessAdminUseremail = $_SESSION["sessAdminEmail"];
     $sessAdminPassword = $_SESSION["sessAdminPassword"];
     $admin_address = $_POST['permanant_address'];
     $admin_city = $_POST['city'];
@@ -59,18 +62,18 @@ if (isset($_POST['submit'])) {
 
 
 
-    function empl_Id($length = 6)
-    {
-        $ID = '';
-        for ($i = 0; $i < $length; $i++) {
-            $ID .= random_int(1, 9);
-
-        }
-
-        return $ID;
-    }
-
-    $employee_Id = empl_Id();
+    //     function empl_Id($length = 6)
+//     {
+//         $ID = '';
+//         for ($i = 0; $i < $length; $i++) {
+//             $ID .= random_int(1, 9);
+// 
+//         }
+// 
+//         return $ID;
+//     }
+// 
+//     $employee_Id = empl_Id();
 
 
     // if (isset($_FILES["image"])) {
@@ -115,7 +118,8 @@ if (isset($_POST['submit'])) {
     // echo $accountNumberr;
 
     if ($dataEmpID == $employee_Id) {
-        empl_Id();
+        // empl_Id();
+        die("Please enter correct empoylee Id");
     } else {
         // Current time and Date of India
         date_default_timezone_set('Asia/Kolkata');
@@ -353,7 +357,8 @@ $con->close();
 
                 <input type="Reset" id="resetbtn" onclick="window.document.location.reload()">
 
-                <input type="button" value="Cancel" id="cancelbtn" onclick="window.document.location.replace('index.php')">
+                <input type="button" value="Cancel" id="cancelbtn"
+                    onclick="window.document.location.replace('index.php')">
             </div>
             <br><br>
         </form>

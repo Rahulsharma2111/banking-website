@@ -88,8 +88,8 @@
 </style>
 
 <body>
-  
-    
+
+
     <div id="Verifitiondiv">
 
 
@@ -100,7 +100,8 @@
             <br><br>
             <span>
                 <input type="password" name="admin_password" id="passwordVerfiy" placeholder=" Enter Password" /><br>
-                <a href="./adminProfileUpdate/adminForgetpassword.php" name="forgetPassword">forget passwod</a></span><br><br>
+                <a href="./adminProfileUpdate/adminForgetpassword.php" name="forgetPassword">forget
+                    passwod</a></span><br><br>
             <input type="submit" name="submit" value="Login" id="loninBtnVerfiy">
             <!-- <br> -->
             <P style="font-size: 17px;"><a href="./admin_signUp.php">SignUp</a></P>
@@ -112,8 +113,8 @@
 
 <?php
 
-$uploadDirectory = $_SERVER['DOCUMENT_ROOT'] ;
-include $uploadDirectory.'/PHPauthemtication.php';
+$uploadDirectory = $_SERVER['DOCUMENT_ROOT'];
+include $uploadDirectory . '/PHPauthemtication.php';
 // include '../PHPauthemtication.php';
 session_start();
 
@@ -132,30 +133,37 @@ if (isset($_POST['submit'])) {
 
     // echo $sql1;
     $result = $con->query($sql);
-// if (($result = $con->query($sql1)) ===false) {
+    // if (($result = $con->query($sql1)) ===false) {
 // echo "<h1>Enter correct details</h1>";
 // exit;
 // }
-   
- $data = $result->fetch_object();
-   
-    
-    if ($username != $data->adminUsername || empty($username)|| is_null($username)) {
-        echo "Enter username correct";
-        exit;
-    }
+
+    $data = $result->fetch_object();
+
+    // try {
+        
+        if (is_null($username) || empty($username) || $username != $data->adminUsername || $data->adminUsername == null) {
+            echo "Enter username correct";
+            exit;
+        }
+       
+    // } catch (\Throwable $th) {
+    //     //throw $th;
+    //     echo "Enter username correct".$th;
+    // }
+
     if ($Password != $data->adminPassword || empty($Password) || is_null($Password)) {
         echo "Enter Password correct";
         exit;
     }
-    if ($username == $data->adminUsername && $Password == $data->adminPassword ) {
-       
-        $admin_EmpID = $data->EmpID ;
+    if ($username == $data->adminUsername && $Password == $data->adminPassword) {
+
+        $admin_EmpID = $data->EmpID;
         $_SESSION["sessAdminUsername"] = $username;
         $_SESSION["sessAdminPassword"] = $Password;
         $_SESSION["sessAdminEmail"] = $data->adminEmail;
         $_SESSION["sessAdminEmpID"] = $admin_EmpID;
-        
+
         header("Location:./adminDashboard.php");
     }
 
@@ -166,15 +174,14 @@ if (isset($_POST['submit'])) {
     // }
 
     // echo "<pre>";
-     // echo "Object";
+    // echo "Object";
     // print_r($data);
     // 
 
 
     if ($con->query($sql) === TRUE) {
         echo "Record inserted successfully.";
-    } 
-    else {
+    } else {
         // header("alert.html");
         echo " Error: <br>" . $con->error;
     }

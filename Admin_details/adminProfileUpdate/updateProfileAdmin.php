@@ -195,6 +195,18 @@ $uploadDirectory = $_SERVER['DOCUMENT_ROOT'] ;
                 <input type="<?php echo $inputTypeField ?>" value="Other" name="firstInputValue" class="gender"> Other
             <?php } ?>
 
+                    <!-- If input type "email" and "E mail" -->
+            <?php if ($inputTypeField == "email" && $updateSessionValue == "Email Id") { ?>
+                <input type="<?php echo $inputTypeField ?>"  name="firstInputValue" class="email"> 
+                
+            <?php } ?>
+
+    <!-- If input type "date" and "date of brith" -->
+    <?php if ($inputTypeField == "date" && $updateSessionValue == "Date of birth") { ?>
+                <input type="<?php echo $inputTypeField ?>"  name="firstInputValue" class="DOB"> 
+                
+            <?php } ?>
+
             <!-- If input type "select" and "state" -->
             <?php if ($inputTypeField == "select" && $updateSessionValue == "State") { ?>
                 <select name="state" id="state" required>
