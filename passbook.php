@@ -177,43 +177,12 @@ $selectTable = "SELECT * FROM accountdebitcreditdetails WHERE  accountNumber= '$
 $selectTableResult = $con->query($selectTable);
 $selectTabledata = $selectTableResult->fetch_object();
 
+
 $decodedPaymentDetails = $selectTabledata->DebitAndCreditDetails;
 // echo $selectTabledata->DebitAndCreditDetails;
 
 $decodedPaymentDetails = json_decode($decodedPaymentDetails, true)['transactions'];
 
-// 👀👀👀👀👀👀👀👀
-// // Custom comparison function for sorting by date in descending order
-// function compareByDateDesc($a, $b) {
-//     return strtotime($b["date"]) - strtotime($a["date"]);
-// }
-// 
-// // Sort transactions by date in descending order
-// usort($decodedPaymentDetails, "compareByDateDesc");
-// 
-// // Print the sorted transactions in descending order
-// // foreach ($decodedPaymentDetails as $transaction) {
-// //     print_r($transaction);
-// // }
-
-// foreach ($decodedPaymentDetails as $transaction):
-//     if (isset($_GET["searchbtn"])) {
-// 
-//         $searchAmoutInPassbook = $_GET["search"];
-// 
-//         if ($transaction['date'] == $searchAmoutInPassbook || $transaction['amount'] == $searchAmoutInPassbook) {
-//             echo "<br>" . $transaction['date'] . "<br>";
-//             echo $transaction['time'] . "<br>";
-//             echo $transaction['type'] . "<br>";
-//             echo $transaction['method'] . "<br>";
-//             echo $transaction['Payment_To'] . "<br>";
-//             echo $transaction['amount'] . "<br>";
-//             echo $transaction['bankbalance'] . "<br>";
-//         }
-// 
-// 
-//     }
-// endforeach;
  ?>
 
 
@@ -253,7 +222,14 @@ $decodedPaymentDetails = json_decode($decodedPaymentDetails, true)['transactions
                     </tr>
                 </thead>
                 <tbody id="tableBody">
-                    <?php foreach ($decodedPaymentDetails as $transaction):
+                    <?php
+                    
+                    if ($decodedPaymentDetails==null) {
+                        die;
+                        // return;
+                    }
+                    
+                    foreach ($decodedPaymentDetails as $transaction):
                         if (isset($_GET["searchbtn"])) {
 
                             $searchAmoutInPassbook = $_GET["search"];
@@ -296,7 +272,9 @@ $decodedPaymentDetails = json_decode($decodedPaymentDetails, true)['transactions
                                 </tr>
                             <?php }
 
-                        } else { ?>
+                        } else { 
+                            ?>
+                    
                             <tr>
 
                                 <td>

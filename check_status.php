@@ -234,7 +234,7 @@ if (isset($_POST['logoutbtn'])) {
         </a>
 
         <!-- Some new Bank funtion on work it make the pages  -->
-        <a href="./querie_help.html" class="href_class" target="_blank">
+        <a href="./Pages/contact_us_page.html" class="href_class" target="_blank">
             <div class="span1">Active/Block Card</div>
         </a>
         <a href="./forgetPassword.php" class="href_class">
@@ -246,7 +246,7 @@ if (isset($_POST['logoutbtn'])) {
         <a href="./closeAccount.php" class="href_class">
             <div class="span1">Close Account</div>
         </a>
-        <a href="./querie_help.html" class="href_class">
+        <a href="./Pages/querie_help.html" class="href_class">
             <div class="span1">Queries</div>
         </a>
 

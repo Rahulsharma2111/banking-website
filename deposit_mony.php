@@ -222,7 +222,7 @@ $data = $result->fetch_object();
 if (isset($_POST['btnDeposit'])) {
     $accountnumber = $_POST['accountNo']; #Account Number
     $check = $_POST['CheakButton']; #    
-    $amount = $_POST['AmountToDepositt'];
+    $amount =abs( $_POST['AmountToDepositt']);
     $accNumberIsExitOrNot = $data->accountNumber;
 
 
@@ -253,7 +253,7 @@ if (isset($_POST['btnDeposit'])) {
 
     $BankBalance = $selectTabledata->accountBalance;
     $updateBankBalance = $BankBalance + $amount;
-
+        
     $InsertAmount = "UPDATE accountdebitcreditdetails SET accountBalance = '$updateBankBalance' WHERE accountdebitcreditdetails.accountNumber = '    $selectTabledata->accountNumber '";
 
 

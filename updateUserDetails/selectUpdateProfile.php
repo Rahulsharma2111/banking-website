@@ -28,11 +28,7 @@ if (!isset($username) || !isset($accountnumber)) {
     header("Location: logIn.php");
     // exit;
 }
-if (isset($_POST['submitbtn'])) {
-$firstUpdateValue = $_POST['firstUpdateValue'];
-$_SESSION['updateSessionValue']=$firstUpdateValue;
-header("Location: updateProfile.php");
-}
+
 
 ?>
 
@@ -42,7 +38,8 @@ header("Location: updateProfile.php");
         <div class="updateSection">
             <div>In <b>24 hours</b> you will update only one information  </div>
             <form action="./selectUpdateProfile.php" method="POST" >
-                <label for="firstUpdateValue"></label>
+                <label for="firstUpdateValue">Select one Option</label>
+                <br>
                 <select name="firstUpdateValue" class="firstUpdateValue " id="firstUpdateValue" >
                 </select>
                 <!-- <label for="secondUpdateValue"></label>
@@ -55,6 +52,14 @@ header("Location: updateProfile.php");
         </div>
     </div>
 </body>
+
+<?php
+if (isset($_POST['submitbtn'])) {
+    $firstUpdateValue = $_POST['firstUpdateValue'];
+    $_SESSION['updateSessionValue']=$firstUpdateValue;
+    header("Location: updateProfile.php");
+    }
+?>
 <script>
     
 

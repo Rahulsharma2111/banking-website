@@ -197,6 +197,18 @@ if ($inputValueUpdate == '') {
             <?php } ?>
 
 
+                 <!-- If input type "date" and "date of brith" -->
+            <?php if ($inputTypeField == "date" && $updateSessionValue == "Date of birth") { ?>
+                <input type="<?php echo $inputTypeField ?>"  name="firstInputValue" class="DOB"> 
+                
+            <?php } ?>
+            
+                    <!-- If input type "email" and "E mail" -->
+                    <?php if ($inputTypeField == "email" && $updateSessionValue == "Email Id") { ?>
+                <input type="<?php echo $inputTypeField ?>"  name="firstInputValue" class="email"> 
+                
+            <?php } ?>
+
             <!-- If input type "radio" and "caste" -->
             <?php if ($inputTypeField == "radio" && $updateSessionValue == "Gender") { ?>
                 <input type="<?php echo $inputTypeField ?>" value="Male" name="firstInputValue" class="gender"> Male

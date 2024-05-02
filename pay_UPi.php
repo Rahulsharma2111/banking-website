@@ -279,6 +279,24 @@ echo $BankBalance;
     if ($BankBalance < $amount) {
         echo "you does not suffciant balance";
         // exit;
+        echo "<script defer>
+        const errorDisplay = document.getElementById('error'); 
+        errorDisplay.style.display = 'block';
+        errorDisplay.style.color = 'red';
+        errorDisplay.style.backgroundColor = '#c643439f';
+        errorDisplay.style.border = 'red';
+        errorDisplay.style.borderBottom = 'red 2px solid';
+        errorDisplay.innerText = ' Not Suffciant Balance In Your Account!';
+
+    
+
+    var time = setInterval(() => {
+        errorDisplay.style.display = 'none';
+        
+    }, 4000);   
+
+        </script>";
+
         return;
     }
     $InsertAmount = "UPDATE accountdebitcreditdetails SET accountBalance = '$updateBankBalance' WHERE accountdebitcreditdetails.accountNumber = '    $selectTabledata->accountNumber '";

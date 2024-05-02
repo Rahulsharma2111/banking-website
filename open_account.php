@@ -43,19 +43,148 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["useremail"]) && !isset($_
 $username = $_SESSION["username"];
 $useremail = $_SESSION["useremail"];
 $userpassword = $_SESSION["Password"];
-// include 'PHPauthemtication.php';
-// session_start();
-// if (!isset($_SESSION["username"]) || !isset($_SESSION["useremail"]) && !isset($_SESSION["Password"])) {
-//     header("Location: Signup.php");
-//     exit;
-// }
-// 
-// $username = $_SESSION["username"];
-// $useremail = $_SESSION["useremail"];
-// $userpassword = $_SESSION["Password"];
-// // echo $username;
-// // echo $useremail;
-// // echo $userpassword;
+
+
+
+if (isset($_POST['submit'])) {
+
+    // The data from Sign up page
+
+
+    echo "everything is right";
+    $firstname = $_POST['firstname'];
+    $middlename = $_POST['middlename'];
+    $lastname = $_POST['lastname'];
+    $fathername = $_POST['fathername'];
+    $mothername = $_POST['mothername'];
+    $mobilenumber = $_POST['mobilenumber'];
+    // $username = $_POST['username'];
+    $username = $_SESSION["username"];
+    $emailid  = $_SESSION["useremail"];
+    // $emailid = $_POST['emailid'];
+    // $userpassword = $_POST['password'];
+    $userpassword = $_SESSION["Password"];
+    $temperey_address = $_POST['temperey_address'];
+    $permanant_address = $_POST['permanant_address'];
+    $city = $_POST['city'];
+    $pincode = $_POST['pincode'];
+    $state = $_POST['state'];
+    $DOB = $_POST['DOB'];
+    $country_name = $_POST['country_name'];
+    $Caste = $_POST['Caste'];
+    $gender = $_POST['gender'];
+    $aadharNumber = $_POST['aadharNumber'];
+    $penCardNumber = $_POST['penCardNumber'];
+
+    if ($firstname == '' || $firstname == null) {
+        echo "<script>
+        errorDisplay.style.display = 'flex';
+errorDisplay.innerHTML = 'Enter Firstname';
+setInterval(errorHideTime, 6000);
+</script>";
+        die();
+    }
+    if ($lastname == '' || $lastname == null) {
+        echo "<script>
+        errorDisplay.style.display = 'flex';
+errorDisplay.innerHTML = 'Enter Firstname';
+setInterval(errorHideTime, 6000);
+</script>";
+        die();
+    }
+ 
+
+    function accNumber($length = 11)
+    {
+        $accountnumber = '';
+        for ($i = 0; $i < $length; $i++) {
+            $accountnumber .= random_int(0, 9);
+
+        }
+
+        return $accountnumber;
+    }
+
+    $accountNumber = accNumber();
+
+
+    // if (isset($_FILES["image"])) {
+    $Personalphoto = $_FILES["Personalphoto"]["tmp_name"];
+    $birth_certificate = $_FILES["birth_certificate"]["tmp_name"];
+    $marksheet10 = $_FILES["marksheet10"]["tmp_name"];
+    $aadhar_card_image_front = $_FILES["aadhar_card_image_front"]["tmp_name"];
+    $aadhar_card_image_back = $_FILES["aadhar_card_image_back"]["tmp_name"];
+    $pen_card_image_front = $_FILES["pen_card_image_front"]["tmp_name"];
+    $pen_card_image_back = $_FILES["pen_card_image_back"]["tmp_name"];
+    // $uer2 = $_FILES["photo2"]["tmp_name"];
+
+    $makefolder_Name = $accountNumber;
+
+    // $file_extension = strtolower(pathinfo($_FILES["Personalphoto"]["name"], PATHINFO_EXTENSION);
+    $image_PersonalPhoto = $accountNumber . "_PersonalPhoto." . strtolower(pathinfo($_FILES["Personalphoto"]["name"], PATHINFO_EXTENSION));
+    $image_class10Marksheet = $accountNumber . "_class10Marksheet." . strtolower(pathinfo($_FILES["marksheet10"]["name"], PATHINFO_EXTENSION));
+    $image_birthCertificate = $accountNumber . "_birthCertificate." . strtolower(pathinfo($_FILES["birth_certificate"]["name"], PATHINFO_EXTENSION));
+    $image_AadharcardFront = $accountNumber . "_AadharcardFront." . strtolower(pathinfo($_FILES["aadhar_card_image_front"]["name"], PATHINFO_EXTENSION));
+    $image_AadharcardBack = $accountNumber . "_AadharcardBack." . strtolower(pathinfo($_FILES["aadhar_card_image_back"]["name"], PATHINFO_EXTENSION));
+    $image_PencardFront = $accountNumber . "_PencardFront." . strtolower(pathinfo($_FILES["pen_card_image_front"]["name"], PATHINFO_EXTENSION));
+    $image_PencardBack = $accountNumber . "_PencardBack." . strtolower(pathinfo($_FILES["pen_card_image_back"]["name"], PATHINFO_EXTENSION));
+
+    // create folder
+    if (mkdir("$uploadDirectory/Bank_customer_image/" . $makefolder_Name)) {
+        echo "folder is created";
+    }
+    move_uploaded_file($Personalphoto, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_PersonalPhoto);
+
+
+    move_uploaded_file($marksheet10, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_class10Marksheet);
+
+    move_uploaded_file($birth_certificate, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_birthCertificate);
+
+    move_uploaded_file($aadhar_card_image_front, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_AadharcardFront);
+
+    move_uploaded_file($aadhar_card_image_back, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_AadharcardBack);
+
+    move_uploaded_file($pen_card_image_front, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_PencardFront);
+
+    move_uploaded_file($pen_card_image_back, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_PencardBack);
+
+    echo "Image Upload successfully";
+    //  echo $accountNumber;
+
+    $sql1 = "SELECT * FROM bankcustmordetails WHERE  accountNumber= '$accountNumber'";
+    $resultsql1 = $con->query($sql1);
+    $data = $resultsql1->fetch_object();
+    // 👀👀
+    $dataAccountNumber = $data->accountNumber;
+    // if( $data->accountNumber===null){ continue};
+
+    // echo $accountNumber;
+
+    // if ($data->accountNumber == $accountNumber) {
+    if ($dataAccountNumber == $accountNumber) {
+        die("Something Wrong Please try again");
+        
+
+    } else if ($data->accountNumber == null) {
+
+        date_default_timezone_set('Asia/Kolkata');
+        $currentDateTime = date("Y-m-d H:i:s");
+
+        $sql1 = "INSERT INTO bankcustmordetails (	firstname, middlename, lastname, fathername, mothername, mobilenumber, emailid, username, userpassword, temparyaddress, premananetaddress, city, pincode, statee, DOB, country, caste, gender, aadharcardnumber, pencardnumber,UPI_Id, accountNumber, personal_Image, class10Marksheet, birth_certificate, Aadharcard_Front, Aadharcard_Back, Pencard_Front, Pencard_Back, dateToCreateAccount, updateAccount ) VALUES ( '$firstname', '$middlename', '$lastname',' $fathername','$mothername','$mobilenumber','$emailid', '$username', '$userpassword', '$temperey_address', '$permanant_address', '$city', '$pincode', '$state', '$DOB', '$country_name', '$Caste', '$gender', '$aadharNumber', '$penCardNumber','', '$accountNumber','$image_PersonalPhoto', '$image_class10Marksheet', '$image_birthCertificate', '$image_AadharcardFront', '$image_AadharcardBack', '$image_PencardFront','$image_PencardBack','$currentDateTime','$currentDateTime' )";
+        // echo $sql1;
+        $con->query($sql1);
+
+        // create and insert accout number in second table as a forgien key
+        $sql2 = "INSERT INTO accountdebitcreditdetails (accountNumber) VALUES ('$accountNumber')";
+        $con->query($sql2);
+
+        header("Location: ./logIn.php");
+    }
+
+
+   
+}
+$con->close();
 
 ?>
 
@@ -331,195 +460,6 @@ $userpassword = $_SESSION["Password"];
         errorDisplay.style.display = "none";
     }
 </script>
-
-<?php
-// $uploadDirectory = $_SERVER['DOCUMENT_ROOT'];
-// include $uploadDirectory . '/PHPauthemtication.php';
-// // echo $uploadDirectory;
-// 
-// if (!isset($_SESSION["username"]) || !isset($_SESSION["useremail"]) && !isset($_SESSION["Password"])) {
-//     header("Location: Signup.php");
-//     exit;
-// }
-
-// $username = $_SESSION["username"];
-// $useremail = $_SESSION["useremail"];
-// $userpassword = $_SESSION["Password"];
-// echo $username;
-// echo $useremail;
-// echo $userpassword;
-
-
-if (isset($_POST['submit'])) {
-
-    // The data from Sign up page
-
-
-    echo "everything is right";
-    $firstname = $_POST['firstname'];
-    $middlename = $_POST['middlename'];
-    $lastname = $_POST['lastname'];
-    $fathername = $_POST['fathername'];
-    $mothername = $_POST['mothername'];
-    $mobilenumber = $_POST['mobilenumber'];
-    // $username = $_POST['username'];
-    $username = $_SESSION["username"];
-    $emailid  = $_SESSION["useremail"];
-    // $emailid = $_POST['emailid'];
-    // $userpassword = $_POST['password'];
-    $userpassword = $_SESSION["Password"];
-    $temperey_address = $_POST['temperey_address'];
-    $permanant_address = $_POST['permanant_address'];
-    $city = $_POST['city'];
-    $pincode = $_POST['pincode'];
-    $state = $_POST['state'];
-    $DOB = $_POST['DOB'];
-    $country_name = $_POST['country_name'];
-    $Caste = $_POST['Caste'];
-    $gender = $_POST['gender'];
-    $aadharNumber = $_POST['aadharNumber'];
-    $penCardNumber = $_POST['penCardNumber'];
-
-    if ($firstname == '' || $firstname == null) {
-        echo "<script>
-        errorDisplay.style.display = 'flex';
-errorDisplay.innerHTML = 'Enter Firstname';
-setInterval(errorHideTime, 6000);
-</script>";
-        die();
-    }
-    if ($lastname == '' || $lastname == null) {
-        echo "<script>
-        errorDisplay.style.display = 'flex';
-errorDisplay.innerHTML = 'Enter Firstname';
-setInterval(errorHideTime, 6000);
-</script>";
-        die();
-    }
-    // if(){
-// 
-// }
-
-    function accNumber($length = 11)
-    {
-        $accountnumber = '';
-        for ($i = 0; $i < $length; $i++) {
-            $accountnumber .= random_int(0, 9);
-
-        }
-
-        return $accountnumber;
-    }
-
-    $accountNumber = accNumber();
-
-
-    // if (isset($_FILES["image"])) {
-    $Personalphoto = $_FILES["Personalphoto"]["tmp_name"];
-    $birth_certificate = $_FILES["birth_certificate"]["tmp_name"];
-    $marksheet10 = $_FILES["marksheet10"]["tmp_name"];
-    $aadhar_card_image_front = $_FILES["aadhar_card_image_front"]["tmp_name"];
-    $aadhar_card_image_back = $_FILES["aadhar_card_image_back"]["tmp_name"];
-    $pen_card_image_front = $_FILES["pen_card_image_front"]["tmp_name"];
-    $pen_card_image_back = $_FILES["pen_card_image_back"]["tmp_name"];
-    // $uer2 = $_FILES["photo2"]["tmp_name"];
-
-    $makefolder_Name = $accountNumber;
-
-    // $file_extension = strtolower(pathinfo($_FILES["Personalphoto"]["name"], PATHINFO_EXTENSION);
-    $image_PersonalPhoto = $accountNumber . "_PersonalPhoto." . strtolower(pathinfo($_FILES["Personalphoto"]["name"], PATHINFO_EXTENSION));
-    $image_class10Marksheet = $accountNumber . "_class10Marksheet." . strtolower(pathinfo($_FILES["marksheet10"]["name"], PATHINFO_EXTENSION));
-    $image_birthCertificate = $accountNumber . "_birthCertificate." . strtolower(pathinfo($_FILES["birth_certificate"]["name"], PATHINFO_EXTENSION));
-    $image_AadharcardFront = $accountNumber . "_AadharcardFront." . strtolower(pathinfo($_FILES["aadhar_card_image_front"]["name"], PATHINFO_EXTENSION));
-    $image_AadharcardBack = $accountNumber . "_AadharcardBack." . strtolower(pathinfo($_FILES["aadhar_card_image_back"]["name"], PATHINFO_EXTENSION));
-    $image_PencardFront = $accountNumber . "_PencardFront." . strtolower(pathinfo($_FILES["pen_card_image_front"]["name"], PATHINFO_EXTENSION));
-    $image_PencardBack = $accountNumber . "_PencardBack." . strtolower(pathinfo($_FILES["pen_card_image_back"]["name"], PATHINFO_EXTENSION));
-
-    // create folder
-    if (mkdir("$uploadDirectory/Bank_customer_image/" . $makefolder_Name)) {
-        echo "folder is created";
-    }
-    move_uploaded_file($Personalphoto, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_PersonalPhoto);
-
-
-    move_uploaded_file($marksheet10, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_class10Marksheet);
-
-    move_uploaded_file($birth_certificate, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_birthCertificate);
-
-    move_uploaded_file($aadhar_card_image_front, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_AadharcardFront);
-
-    move_uploaded_file($aadhar_card_image_back, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_AadharcardBack);
-
-    move_uploaded_file($pen_card_image_front, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_PencardFront);
-
-    move_uploaded_file($pen_card_image_back, "$uploadDirectory/Bank_customer_image/" . $makefolder_Name . "/" . $image_PencardBack);
-
-    echo "Image Upload successfully";
-    //  echo $accountNumber;
-
-    $sql1 = "SELECT * FROM bankcustmordetails WHERE  accountNumber= '$accountNumber'";
-    $resultsql1 = $con->query($sql1);
-    $data = $resultsql1->fetch_object();
-    // 👀👀
-    $dataAccountNumber = $data->accountNumber;
-    // if( $data->accountNumber===null){ continue};
-
-    // echo $accountNumber;
-
-    // if ($data->accountNumber == $accountNumber) {
-    if ($dataAccountNumber == $accountNumber) {
-        die("Something Wrong Please try again");
-        //         $accountNumber = accNumber();
-//        
-//         date_default_timezone_set('Asia/Kolkata');
-//         $currentDateTime = date("Y-m-d H:i:s");
-// 
-//         $sql1 = "INSERT INTO bankcustmordetails (firstname, middlename, lastname, fathername, mothername, mobilenumber, emailid, username, userpassword, temparyaddress, premananetaddress, city, pincode, statee, DOB, country, caste, gender, aadharcardnumber, pencardnumber, accountNumber, personal_Image, class10Marksheet, birth_certificate, Aadharcard_Front, Aadharcard_Back, Pencard_Front, Pencard_Back, dateToCreateAccount, updateAccount ) VALUES ( '$firstname', '$middlename', '$lastname',' $fathername','$mothername','$mobilenumber','$emailid', '$username', '$userpassword', '$temperey_address', '$permanant_address', '$city', '$pincode', '$state', '$DOB', '$country_name', '$Caste', '$gender', '$aadharNumber', '$penCardNumber', '$accountNumber','$image_PersonalPhoto', '$image_class10Marksheet', '$image_birthCertificate', '$image_AadharcardFront', '$image_AadharcardBack', '$image_PencardFront','$image_PencardBack','$currentDateTime','$currentDateTime' )";
-//         echo $sql1;
-//         $con->query($sql1);
-// 
-//         // create and insert accout number in second table as a forgien key
-//         $sql2 = "INSERT INTO accountdebitcreditdetails (accountNumber) VALUES ('$accountNumber')";
-//         $con->query($sql2);
-// 
-// 
-//         header("Location:chekStatusVerfiy.php");
-
-    } else if ($data->accountNumber == '') {
-
-        date_default_timezone_set('Asia/Kolkata');
-        $currentDateTime = date("Y-m-d H:i:s");
-
-        $sql1 = "INSERT INTO bankcustmordetails (	firstname, middlename, lastname, fathername, mothername, mobilenumber, emailid, username, userpassword, temparyaddress, premananetaddress, city, pincode, statee, DOB, country, caste, gender, aadharcardnumber, pencardnumber,UPI_Id, accountNumber, personal_Image, class10Marksheet, birth_certificate, Aadharcard_Front, Aadharcard_Back, Pencard_Front, Pencard_Back, dateToCreateAccount, updateAccount ) VALUES ( '$firstname', '$middlename', '$lastname',' $fathername','$mothername','$mobilenumber','$emailid', '$username', '$userpassword', '$temperey_address', '$permanant_address', '$city', '$pincode', '$state', '$DOB', '$country_name', '$Caste', '$gender', '$aadharNumber', '$penCardNumber','', '$accountNumber','$image_PersonalPhoto', '$image_class10Marksheet', '$image_birthCertificate', '$image_AadharcardFront', '$image_AadharcardBack', '$image_PencardFront','$image_PencardBack','$currentDateTime','$currentDateTime' )";
-        echo $sql1;
-        $con->query($sql1);
-
-        // create and insert accout number in second table as a forgien key
-        $sql2 = "INSERT INTO accountdebitcreditdetails (accountNumber) VALUES ('$accountNumber')";
-        $con->query($sql2);
-
-
-        // if ($con->query($sql1) === TRUE) {
-        //     echo "Record inserted successfully.";
-        // } 
-        // else {
-        //     echo "Error: " . $sql1 . "<br>" . $con->error;
-        //     echo "<br>";
-        //     echo "Error: " . $sql2 . "<br>" . $con->error;
-        // }
-
-
-
-        header("Location: logIn.php");
-    }
-
-
-   
-}
-$con->close();
-
-?>
-
 
 
 <style>

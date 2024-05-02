@@ -179,6 +179,25 @@ $data = $result->fetch_object();
         $updateBankBalance = $BankBalance - $amount;
         if ($BankBalance < $amount) {
             echo "you does not suffciant balance";
+
+            echo "<script defer>
+            const errorDisplay = document.getElementById('error'); 
+            errorDisplay.style.display = 'block';
+            errorDisplay.style.color = 'red';
+            errorDisplay.style.backgroundColor = '#c643439f';
+            errorDisplay.style.border = 'red';
+            errorDisplay.style.borderBottom = 'red 2px solid';
+            errorDisplay.innerText = ' Not Suffciant Balance In Your Account!';
+    
+        
+    
+        var time = setInterval(() => {
+            errorDisplay.style.display = 'none';
+            
+        }, 4000);   
+    
+            </script>";
+
             exit;
             // return;
         }
